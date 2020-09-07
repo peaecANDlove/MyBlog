@@ -1,0 +1,95 @@
+.bodyRecord{
+    
+    background: url('../images/bg-block.png')  !important;
+}
+
+.record-head{
+    font-size: 28px !important;
+    font-weight: 400;
+}
+.record-desc{
+    color: #74787c !important;
+    font-weight: 400 !important;
+}
+
+.m-record-left{
+    margin-left: 30px !important;
+}
+
+.icon-top{
+    margin-top: 20px;
+}
+
+.m-header-bottom{
+    margin-bottom: 30px !important;
+}
+
+.record-content-header{
+    font-size: 20px !important;
+}
+
+.record-ending{
+    font-size: large;
+    font-weight: 600;
+}
+
+.fadeIn-one {
+    animation: fadeIN;
+    -webkit-animation:fadeInDown 1s .5s ease both;
+    -moz-animation:fadeInDown 1s .5s ease both;
+}
+.fadeIn-two {
+    animation: fadeIN;
+    -webkit-animation:fadeInDown 1s 1s ease both;
+    -moz-animation:fadeInDown 1s 1s ease both;
+}
+.fadeIn-three {
+    animation: fadeIN;
+    -webkit-animation:fadeInDown 1s 1.5s ease both;
+    -moz-animation:fadeInDown 1s 1.5s ease both;
+}
+.fadeIn-four {
+    animation: fadeIN;
+    -webkit-animation:fadeInDown 1s 2s ease both;
+    -moz-animation:fadeInDown 1s 2s ease both;
+}
+.fadeIn-five {
+    animation: fadeIN;
+    -webkit-animation:fadeInDown 1s 2.5s ease both;
+    -moz-animation:fadeInDown 1s 2.5s ease both;
+}
+.fadeIn-six {
+    animation: fadeIN;
+    -webkit-animation:fadeInDown 1s 3s ease both;
+    -moz-animation:fadeInDown 1s 3s ease both;
+}
+@keyframes fadeInDown {
+    0% {
+    opacity:0;
+    -webkit-transform:translateY(-20px)
+    }
+    100% {
+    opacity:1;
+    -webkit-transform:translateY(0)
+    }
+}
+@-webkit-keyframes fadeInDown {
+    0% {
+    opacity:0;
+    -webkit-transform:translateY(-20px)
+    }
+    100% {
+    opacity:1;
+    -webkit-transform:translateY(0)
+    }
+}
+@-moz-keyframes fadeInDown {
+    0% {
+    opacity:0;
+    -moz-transform:translateY(-20px)
+    }
+    100% {
+    opacity:1;
+    -moz-transform:translateY(0)
+    }
+}

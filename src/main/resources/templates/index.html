@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}" >
+    <link rel="stylesheet" href="../static/css/utils.css" th:href="@{/css/utils.css}" >
+    <link rel="stylesheet" th:href="@{/css/paging.css}">
+    <link rel="stylesheet" th:href="@{/css/utils_css/jqcloud.css}">
+
+
+
+</head>
+<body class="bodyIndex">
+    <!-- 导航 -->
+    <nav th:replace="common_frg :: menu(1)" class="ui inverted attached segment m-padd-top-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal inverted header item">Myblog</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i><span class="m-fam-size" style="color:#FF851B !important;">首页</span></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i><span class="m-fam-size" style="color:#54c8ff !important;">分类</span></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tag icon"></i><span class="m-fam-size" style="color:#dc73ff !important;">标签</span></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="plane icon"></i><span class="m-fam-size" style="color:#a291fb !important;">旅行游记</span></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="calendar icon"></i><span class="m-fam-size" style="color:#ff8edf !important;">时光轴</span></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="spinner icon"></i><span class="m-fam-size" style="color:#74b34b !important;">博客记录</span></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="user plus icon"></i><span class="m-fam-size" style="color:#d3c75d !important;">友链</span></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i><span class="m-fam-size" style="color:#ff695e !important;">关于我</span></a>
+                <div class="m-item right item m-mobile-hide">
+                    <div class="ui icon transparent inverted input">
+                        <input class="prompt" type="text" placeholder="搜点什么">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="ui menu toggle inverted  icon buttom m-right-top m-mobile-show " style="color: rgb(218, 218, 218);"  >
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!-- 中部内容 -->
+    <div class="m-padd-foot">
+
+       
+        <div class="ui fluid container "  >
+             <!-- 每日心情 -->
+            <div class="ui  stackable grid" style="margin-left: 25px; margin-right: 35px; ">
+                <div class="twelve wide column">
+                    <div class="ui raised segment " style="padding-bottom: 6px; padding-top: 6px;" >
+                        <i class="volume up icon"></i>
+                        <span>每日心情</span>
+                    </div>
+                </div>
+
+                <div class="four wide column">
+                    <div class="right column">
+                        <h3 class="ui inverted blue header m-h4-paddind">随心说</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 页面中部主体 -->
+            <div class="ui  mobile reversed  stackable grid"  style="margin-left: 25px; margin-right: 35px; margin-top: 0.5rem;">
+                
+                <!-- 个人介绍+联系方式 -->
+                <div class="four wide column  grid">
+                    <div class="ui raised segment">
+                        <!-- 头像 -->
+                        <div class="m-padd-foot">
+                            <div class="ui centered  two column grid">
+                                <div class="ui container center aligned">
+                                    <h3>PEACE</h3>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <!-- 关注我 -->
+                        <div class="centered row m-padd-foot">
+                            <div class="ui center aligned container">
+                                <div class="ui large violet animated button center" tabindex="0">
+                                    <div class="visible content">关注我</div>
+                                    <div class="hidden content">
+                                    <i class="left arrow icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+
+                        <div class="ui divider m-margin-remark"></div>
+
+                        <!-- 一段说明 -->
+                        <div class="row">
+                            <div class="ui center aligned container">
+                               <p class="">绵羊的活法是对的，老虎的活法也是对的；桑塔纳的价格是合理的，宝马的价格也是合理的。</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="ui divider m-margin-remark"></div>
+
+                        <!-- 联系方式 -->
+                        <div class="row">
+                            <div class="ui center aligned container">
+
+                                <div class="m-inline-block" data-tooltip="QQ">
+                                    <a href="#" title="QQ" class="m-a-before-color-qq">
+                                        <i class="big qq icon"></i>
+                                    </a>
+                                </div>
+                                
+                                
+                                <div class="m-inline-block" data-tooltip="github">
+                                    <a href="#" title="github" class="m-a-before-color-github">
+                                        <i class="big github icon"></i>
+                                    </a>
+                                </div>
+                                
+
+                                <div class="m-inline-block" data-tooltip="码云">
+                                    <a href="#" title="码云" class="m-a-before-color-mayun">
+                                        <i class="big gg icon"></i>
+                                    </a>
+                                </div>
+                                
+                                
+                            </div>
+                            <!-- qq -->
+                            
+                        </div>
+                        
+
+                        
+                    </div>
+                </div>
+
+                <!-- 博客主体文章缩略显示 -->
+                <div class="eight wide column ">
+
+                    <!-- 文章主体 -->
+                    <div class="articleInfo">
+
+                        <!--<div class="ui raised segments article-content-segment" >-->
+
+                            <!--&lt;!&ndash; 文章块部分 &ndash;&gt;-->
+                            <!--<div class="ui raised segment">-->
+                                <!--<div class="ui middle aligned grid">-->
+
+                                    <!--&lt;!&ndash; 每篇内容头部 &ndash;&gt;-->
+                                    <!--<div class="eleven wide column">-->
+
+                                        <!--&lt;!&ndash; 内容标题 &ndash;&gt;-->
+                                        <!--<h3 class="m-text-middle  m-font-size-big m-margin-bt-mini">-->
+                                            <!--<a class="m-text-color" href="http://www.w3school.com.cn/" >springboot之初体验</a>-->
+                                        <!--</h3>-->
+
+                                        <!--&lt;!&ndash; 文章创作类型，作者，分类 &ndash;&gt;-->
+                                        <!--<div class="ui horizontal link list ">-->
+
+                                            <!--&lt;!&ndash; 创作类型 &ndash;&gt;-->
+                                            <!--<div class="item" >-->
+                                                <!--<div class="m-margin-bt-small ">-->
+                                                    <!--<span class="ui  green label m-padd-mini type-bottom" >原创</span>-->
+                                                <!--</div>-->
+
+                                            <!--</div>-->
+
+                                            <!--&lt;!&ndash; 创作时间 &ndash;&gt;-->
+                                            <!--<div class="item" >-->
+                                                <!--<div class="create-time">-->
+                                                    <!--<i class="  calendar alternate icon m-i-remark m-create-time-color m-margin-zero-right m-padding-right-zero"></i>-->
+                                                    <!--<a href="#" class="m-font-size-mini m-a-remark m-time-color" >2020/7/28</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--&lt;!&ndash; 作者 &ndash;&gt;-->
+                                            <!--<div class="item ">-->
+                                                <!--<div class="author ">-->
+                                                    <!--<i class=" user icon m-i-remark m-padding-right-zero m-margin-zero-right" ></i>-->
+                                                    <!--<span >余睿哲</span>-->
+                                                <!--</div>-->
+
+                                            <!--</div>-->
+
+                                            <!--&lt;!&ndash; 文件目录 &ndash;&gt;-->
+                                            <!--<div class="item">-->
+                                                <!--<div class="contents">-->
+                                                    <!--<i class="folder icon m-i-remark m-padding-right-zero m-margin-zero-right "></i>-->
+                                                    <!--<span>人生感悟</span>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--&lt;!&ndash; 浏览次数 &ndash;&gt;-->
+                                            <!--<div class="item">-->
+                                                <!--<div class="skim">-->
+                                                    <!--<i class="eye icon m-i-remark m-padding-right-zero m-margin-zero-right"></i>-->
+                                                    <!--<span>115</span>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+
+
+                                        <!--&lt;!&ndash; 内容简介 &ndash;&gt;-->
+                                        <!--<div class="ui container">-->
+                                            <!--<div class="summarized m-padd-foot-small">-->
+                                                <!--<p class="m-text-second-p ">一个人要么提得起，要么放得下，最可悲的是既提不起又放不下，犹豫来犹豫去，在中间摇摆不定。但是，往往犹豫的人能找到足够的理由证明他的行为是对的,一个人要么提得起，要么放得下，最可悲的是既提不起又放不下，犹豫来犹豫去，在中间摇摆不定。但是，往往犹豫的人能找到足够的理由证明他的行为是对的</p>-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+
+                                        <!--&lt;!&ndash; 阅读链接 &ndash;&gt;-->
+                                        <!--<div class="left aligned five column">-->
+                                            <!--<div class="m-article-link">-->
+                                                <!--<a href="#" >-->
+                                                    <!--阅读全文-->
+                                                <!--</a>-->
+                                                <!--<i class="hand point left outline icon"></i>-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+
+                                    <!--</div>-->
+
+                                    <!--&lt;!&ndash; 内容插图 &ndash;&gt;-->
+                                    <!--<div class="five wide column " >-->
+                                        <!--<a href="#" target="_blank" >-->
+                                            <!--<img class="ui  rounded image" src="https://picsum.photos/id/1/1000/550?image=1051" alt="" >-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+
+
+
+                            <!--&lt;!&ndash; 底部分类标签 &ndash;&gt;-->
+                            <!--<div class="ui raised segment article-footer-segment">-->
+                                <!--<div class="m-tag-list">-->
+                                    <!--<a href="#">-->
+                                        <!--<i class="large tag icon"></i>-->
+                                        <!--<span>生活感悟</span>-->
+                                    <!--</a>-->
+
+                                    <!--<a href="#">-->
+                                        <!--<i class="large tag icon"></i>-->
+                                        <!--<span>个人心得</span>-->
+                                    <!--</a>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+
+
+                        <!--</div>-->
+
+                    </div>
+
+
+
+                    <!-- 底部分页按钮 -->
+                    <div class="ui center aligned container m-margin-bt list">
+
+                        <div id="pagination" >
+                            <ul >
+                                <li class="item"><a href="#">&laquo; 上一页</a></li>
+                                <li class=""><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="item"><a href="#">下一页 &raquo;</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+
+                <!-- 右部部件 -->
+                <div class="four wide column " >
+                    <!-- 一段文字 -->
+                    <div class="ui raised tall stacked segment" style="background-color: #feeeed;">
+                        
+                        <div class="row m-padd-foot-mini m-padd-rf-small " >
+                            
+                            <i class=" quote left icon "></i>
+                            <div class="m-padd-foot-tiny"></div>
+                            <div class="ui center aligned container">
+                                <p >一生二</p>
+                                <p>二生三</p>
+                                <p>三生万物</p>
+                                <p>说等棒棒的</p>
+                            </div>
+                            
+                            <div class="m-padd-foot-tiny"></div>
+                            <i class="quote right icon " style="float: right;"></i>
+                            <div class="m-padd-foot-small"></div>
+                            
+                        </div>
+
+                    </div>
+
+                    <!--&lt;!&ndash; 卡片一  日志 &ndash;&gt;-->
+                    <!--<div class="ui raised segments m-margin-bt-large">-->
+                        <!--<div class="ui violet inverted segment m-padd-foot-small">-->
+                            <!--<div class="ui center aligned container">-->
+                                <!--<h3>生活日志</h3>-->
+                            <!--</div>-->
+                            <!---->
+                        <!--</div>-->
+                        <!--<div class="ui segment">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!-- 最新推荐 -->
+                    <div class="ui raised  segments m-margin-bt-large last-recommend recommend-blog">
+
+                        <!--<div class="ui segment m-padd-foot-small">-->
+                            <!--<div class="articles m-padd-mini">-->
+                                <!--<i class="edit icon"></i>-->
+                                <!--<span>推荐博客</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="ui  segments">-->
+                            <!--<div class="ui segment">-->
+                                <!--1-->
+                            <!--</div>-->
+                            <!--<div class="ui segment">-->
+                                <!--1-->
+                            <!--</div>-->
+                            <!--<div class="ui segment">-->
+                                <!--1-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                        <!--<div class="ui pink inverted segment m-padd-foot-small ">-->
+                            <!--<div class="ui center aligned container ">-->
+                                <!--<h3>强力推荐</h3>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="ui center aligned segment m-padd-foot-small ">-->
+                            <!--<a href="#" class="m-color ">用户故事</a>-->
+                        <!--</div>-->
+                        <!--<div class="ui segment m-padd-foot-small">-->
+                            <!--<a href="#" class="m-color ">用户故事</a>-->
+                        <!--</div>-->
+                        <!--<div class="ui segment m-padd-foot-small">-->
+                            <!--<a href="#" class="m-color ">用户故事</a>-->
+                        <!--</div>-->
+                        <!--<div class="ui segment m-padd-foot-small">-->
+                            <!--<a href="#" class="m-color ">用户故事</a>-->
+
+                        </div>
+
+
+                    
+
+                    
+                    <!-- 卡片二  标签云-->
+                    <div class="ui raised segments m-margin-bt-large">
+                        <div class="ui  segment m-padd-foot-small" >
+                            <div class=" m-padd-mini">
+                                <i class="blue cloud icon"></i>
+                                <span>标签云</span>
+                            </div>
+                        </div>
+                        <div  style="padding: 0 0 !important;">
+                            <div class="tag-bg">
+                                <div id="cloud"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 卡片三  网站信息 -->
+                    <div class="ui raised segments m-margin-bt-large website-info">
+                        <!--<div class="ui segment m-padd-foot-small">-->
+                            <!--<div class=" m-padd-mini">-->
+                                <!--<i class="green info icon"></i>-->
+                                <!--<span>网站信息</span>-->
+                            <!--</div>-->
+                            <!---->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; 各个条目 &ndash;&gt;-->
+                        <!--<div class="ui segment ">-->
+                            <!--<div class="articles m-padd-mini">-->
+                                <!--<i class="file alternate icon"></i>-->
+                                <!--<span>文章总数：</span>-->
+                                <!--<span>40篇</span>-->
+                            <!--</div>-->
+
+                            <!--<div class="tag-counts m-padd-mini">-->
+                                <!--<i class="tag icon"></i>-->
+                                <!--<span>标签总数：</span>-->
+                                <!--<span>30个</span>-->
+                            <!--</div>-->
+
+                            <!--<div class="category-counts m-padd-mini">-->
+                                <!--<i class="folder outline icon"></i>-->
+                                <!--<span>分类总数：</span>-->
+                                <!--<span>45条</span>-->
+                            <!--</div>-->
+                            <!--<div class="discuss m-padd-mini">-->
+                                <!--<i class=" comment outline icon"></i>-->
+                                <!--<span>评论总数：</span>-->
+                                <!--<span>30条</span>-->
+                            <!--</div>-->
+
+                            <!--<div class="least-update-time m-padd-mini">-->
+                                <!--<i class=" edit icon"></i>-->
+                                <!--<span>网站最近更新时间：</span>-->
+                                <!--<span>2020/7/28</span>-->
+                            <!--</div>-->
+
+                            <!--<div class="working-time m-padd-mini">-->
+                                <!--<i class=" cloud icon"></i>-->
+                                <!--<span>网站运行时间：</span>-->
+                                <!--<span>2020/7/28</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+
+            </div>
+                
+        </div>
+        
+        
+        
+    </div>
+
+    <!-- 底部 -->
+    <footer th:replace="common_frg :: footer_user" class="ui inverted vertical segment m-padd-foot-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item" >
+                            <img src="../static/images/weChat.png" th:src="@{/images/weChat.png}" alt="" style="width: 110px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-trspant">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">第一篇</a>
+                        <a href="#" class="item">第一篇</a>
+                        <a href="#" class="item">第一篇</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-trspant">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">第一篇</a>
+                        <a href="#" class="item">第一篇</a>
+                        <a href="#" class="item">第一篇</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-trspant">说点什么</h4>
+                    <p class="m-text-thin m-text-spaced m-text-trspant-mini" >
+                        这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客
+                    </p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-text-trspant-mini">copyright@123456 yrz</p>
+        </div>
+    </footer>
+
+
+    <!--/*/<th:block th:replace="common_frg :: script">/*/-->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+        <script src="../static/js/common_index.js" th:src="@{/js/common_index.js}"></script>
+    <!--/*/</th:block>/*/-->
+    <script th:src="@{/js/utils_js/jqcloud-1.0.4.min.js}"></script>
+    <script th:src="@{/js/utils_js/paging.js}"></script>
+    <script th:src="@{/js/data_index.js}"></script>
+
+
+
+<script>
+    
+</script>
+</body>
+</html>

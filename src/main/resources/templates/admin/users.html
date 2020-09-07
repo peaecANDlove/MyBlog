@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common_frg_admin :: header_admin(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/adminIndex.css">
+</head>
+<body>
+
+    <!-- 管理导航栏 -->
+    <div th:replace="admin/common_frg_admin :: menu_admin(3)" class="ui  inverted attached segment m-padd-top-mini m-shadow-small">
+        
+            <div class="ui  inverted secondary borderless stackable menu m-padd-top-mini" >
+                <h2 class="ui teal inverted header item m-padding-head" >管理后台</h2>
+                
+                  <a href="#" class=" m-item item m-mobile-hide m-padding-head-page"><i class="edit icon"></i><span class="m-fam-size" style="color:#e65384 !important;">博客管理</span></a>
+                  <a href="#" class=" m-item item m-mobile-hide m-padding-head-page"><i class="plane icon"></i><span class="m-fam-size" style="color:#a291fb !important;">旅行游记发布</span></a>
+                  <a href="#" class=" m-item item m-mobile-hide m-padding-head-page"><i class="folder icon"></i><span class="m-fam-size" style="color:#a291fb !important;">分类</span></a>
+                  <a href="#" class=" m-item item m-mobile-hide m-padding-head-page"><i class="user icon"></i><span class="m-fam-size" style="color:#a291fb !important;">用户管理</span></a>
+                  <a href="#" class=" m-item item m-mobile-hide m-padding-head-page"><i class="spinner icon"></i><span class="m-fam-size" style="color:#74b34b !important;">博客记录添加</span></a>
+                  <a href="#" class="m-item item m-mobile-hide m-padding-head-page"><i class="user plus icon"></i><span class="m-fam-size" style="color:#d3c75d !important;">友链添加</span></a>
+                  <a href="#" class="m-item item m-mobile-hide m-padding-head-page"><i class="info icon "></i><span class="m-fam-size" style="color:#ff695e !important;">散言碎语发布</span></a>
+                  
+                
+
+                
+
+                  <!-- 管理员登录 -->
+                  <div class=" right  menu right-menu m-item m-mobile-hide "  style="margin-left: 200px !important;">
+                      <div class="ui dropdown item dropdown-item">
+                        <div class="text">
+                          <img class="ui avatar image" src="https://picsum.photos/id/1/100/100?image=1021">
+                            余睿哲
+                            <div class="floating ui mini red circular label">22</div>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item">
+                              <i class="hand point up outline icon"></i>
+                              <a href="#" style="color: rgb(135, 86, 184);">登录</a>
+                            </div>
+                            
+                            <div class="item">
+                              <i class="power off icon"></i>
+                              <a href="#" style="color: rgb(144, 83, 206);">注销</a>
+                            </div>
+
+                            <div class="ui left pointing dropdown link item" style="color: black !important;">
+                              <i class="envelope icon"></i>
+                                <span style="color: rgb(144, 83, 206);;">消息</span> 
+                              <div class="menu" >
+                                <div class="item">
+                                  <i class="user icon"></i>
+                                  <a href="#" style="color: rgb(90, 138, 228) !important;">新注册用户</a>
+                                  <div class="floating ui mini red circular label">22</div>
+                                </div>
+                                <div class="item">
+                                  <i class="comments outline icon"></i>
+                                  <a href="#"  style="color: cornflowerblue !important;">新增评论</a>
+                                  <div class="floating ui mini red circular label">22</div>
+                                </div>
+                                <div class="item">
+                                  <i class="user plus icon"></i>
+                                  <a href="#"  style="color: cornflowerblue !important;">友链添加</a>
+                                  <div class="floating ui mini red circular label">22</div>
+                                </div>
+                                
+                              </div>
+                            </div>
+
+                        </div>
+                  </div>
+
+                  
+
+
+                  
+
+ 
+                  </div>
+
+                  <a href="#" class="ui menu toggle inverted  icon buttom m-right-top m-mobile-show " style="color: rgb(218, 218, 218);"  >
+                    <i class="sidebar icon"></i>
+                  </a>
+
+            </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- 博客分类管理 -->
+    <div class="m-container-small m-padding-bt-big">
+        <div class="ui container">
+            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                <i class="close icon"></i>
+                <div class="header">
+                    提示：
+                </div>
+                <p th:text="${message}">操作成功！</p>
+            </div>
+
+            <!-- 标签大全 -->
+
+              <div class="ui top attached segment">
+                    <div class="ui middLe aligned two column grid">
+                        <div class="column">
+                          <h3 class="ui teal header">用户 </h3>
+                        </div>
+                        <div class="right aligned column">
+                          共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${pageInfo.total}"></h2> 个用户
+                        </div>
+                    </div>
+              </div>
+
+            <table class="ui celled table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>昵称</th>
+                    <th>账号</th>
+                    <th>权限</th>
+                    <th>创建时间</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user,iterStat : ${pageInfo.list}">
+                    <td th:text="${iterStat.count}">1</td>
+                    <td th:text="${user.nickName}">springboot</td>
+                    <td th:text="${user.accountNumber}"></td>
+                    <td th:text="${user.role} == 1 ? '管理员' : '游客' "></td>
+                    <td th:text="${#dates.format(user.createTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <td th:text="${#dates.format(user.updateTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <td>
+                        <a href=""  th:href="@{/admin/user/{id}/delete(id=${user.id})}" class="ui tiny red button">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="7" >
+                            <span class="center aligned column">
+                                    共 <span th:text="${pageInfo.pages}"></span> 页，
+                                    当前第 <span th:text="${pageInfo.pageNum}"></span> 页
+                            </span>
+                            <div class="ui right floated pagination menu" th:if="${pageInfo.pages}>1">
+                                <a class=" item" th:href="@{/admin/tags(pageNum=${pageInfo.hasPreviousPage}? ${pageInfo.prePage}: 1)}" th:unless="${pageInfo.isFirstPage}">
+                                    上一页
+                                </a>
+                                <a class="item" th:href="@{/admin/tags(pageNum=${pageInfo.hasNextPage} ? ${pageInfo.nextPage} : ${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}" >
+                                    下一页
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="../../static/js/utils_js/adminIndex.js" th:src="@{/js/utils_js/adminIndex.js}"></script>
+
+<script>
+
+</script>
+</html>

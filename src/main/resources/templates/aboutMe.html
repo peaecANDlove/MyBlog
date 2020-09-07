@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../static/css/utils.css" th:href="@{/css/utils.css}">
+    <link rel="stylesheet" href="../static/css/word-style.css" th:href="@{/css/word-style.css}">
+    <link rel="stylesheet" href="../static/css/aboutMe.css" th:href="@{/css/aboutMe.css}">
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+
+
+</head>
+
+
+<body class="bodyMe">
+
+  <!-- 导航 -->
+  <nav th:replace="common_frg :: menu(8)" class="ui inverted attached segment m-padd-top-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal inverted header item">Myblog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i><span class="m-fam-size" style="color:#FF851B !important;">首页</span></a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i><span class="m-fam-size" style="color:#54c8ff !important;">分类</span></a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tag icon"></i><span class="m-fam-size" style="color:#dc73ff !important;">标签</span></a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="plane icon"></i><span class="m-fam-size" style="color:#a291fb !important;">旅行游记</span></a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="calendar icon"></i><span class="m-fam-size" style="color:#ff8edf !important;">时光轴</span></a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="spinner icon"></i><span class="m-fam-size" style="color:#74b34b !important;">博客记录</span></a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="user plus icon"></i><span class="m-fam-size" style="color:#d3c75d !important;">友链</span></a>
+            <a href="#" class="m-item item m-mobile-hide "><i class="info icon "></i><span class="m-fam-size" style="color:#ff695e !important;">关于我</span></a>
+            <div class="m-item right item m-mobile-hide">
+                <div class="ui icon transparent inverted input">
+                    <input class="prompt" type="text" placeholder="搜点什么">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="ui menu toggle inverted  icon button m-right-top m-mobile-show " style="color: rgb(218, 218, 218);"  >
+        <i class="sidebar icon"></i>
+    </a>
+  </nav>
+
+  <!-- 中部内容 -->
+  <div class="m-container-small m-margin-bt-big">
+
+
+    <div class="ui container">
+      <div class="ui basic segment">
+        <div class="ui center aligned container">
+          <h2>About-ME</h2>
+        </div>
+      </div>
+  
+      <!-- 头部图片 -->
+      <div class="ui basic segment">
+          <img src="../static/images/aboutMe-bg3.jpg" th:src="@{/images/aboutMe-bg3.jpg}" alt="" class="ui centered big  rounded border image">
+      </div>
+  
+      <!-- 自我介绍 -->
+      <div class="m-container-small">
+       <div class="ui   basic segment wow slideInDown ">
+          <div class="ui center aligned container">
+            <h3 class="m-margin-bt-small">关于我</h3>
+          </div>
+          
+          <p class="aboutMe-info" style="color: #6b6b6b !important;">
+            余睿哲，目前在成都西南石油大学学习，在学校翼灵物联工作室学长的带领下，进入了java后端技术的学习中，突然发现我还挺喜欢这种编程的感觉。
+            <br>
+          </p>
+       </div>
+  
+       <div class="ui   basic segment wow slideInDown ">
+          <div class="ui center aligned container">
+            <h3 class="m-margin-bt-small">兴趣爱好</h3>
+          </div>
+          <p class="aboutMe-info " style="color: #6b6b6b  !important;">喜欢打篮球，虽然有点菜，但不妨碍我对篮球的喜爱；喜欢穷游，年轻就要到处看看，看看不同的生活，毕竟世界这么大；最喜欢的音乐是hiphop，一听到喜欢的歌手上节目或者发新歌就开心的不得了。</p>
+       </div>
+
+       <div class="ui   basic segment wow slideInDown ">
+        <div class="ui center aligned container">
+          <h3 class="m-margin-bt-small">技术相关</h3>
+        </div>
+        <p class="aboutMe-info " style="color: #6b6b6b  !important;">主要学习的是Java后端技术，会使用流行的SSM框架，对redis，elasticsearch也有所涉猎；对于人工智能，大数据方面有兴趣，但为未进行学习，会在将来的时间学习相关技术；欢迎大家和我一起探讨相关技术，共同进步。</p>
+     </div>
+  
+       <div class="ui basic segment wow slideInDown">
+          <div class="ui center aligned container">
+            <h3 class="m-margin-bt-small">关于博客</h3>
+          </div>
+          <p class="aboutMe-info " style="color: #6b6b6b  !important;">建博客的初衷是为了以后面试，有个拿得出手的项目，后来发现计算机这个行业需要的学习的东西太多了，简单看看的不做总结和记录，很难记忆深刻，更加坚定我要建立博客的决心，然而我又是一个比较喜欢记录生活的人，平常喜欢写写日记，抒发一下自己的感悟和心情，可是用来记录的日记本总是被我丢的没了踪影，看来我是非做这个博客不可了。</p>
+       </div>
+  
+       <div class="ui  basic segment wow slideInDown">
+        <div class="ui center aligned container">
+          <h3 class="m-margin-bt-small">心愿寄语</h3>
+        </div>
+        <p class="aboutMe-info " style="color: #6b6b6b !important; ">愿我们都能通过自己的努力，在不久的将来过和心爱的人一起过上自己喜欢的生活，不被世俗的烦恼所烦扰。如果想要和我探讨技术上的问题或者做生活上的伙伴可以扫描屏幕左下方的二维添加我的微信，或者关注我的公众号： “生活要有诗意” 了解更多关于我的信息</p>
+       </div>
+      
+        
+      </div>
+  
+      <!-- 分割图片 -->
+      <div class="ui basic segment">
+        <img src="../static/images/aboutMe-bg2.jpg" th:src="@{/images/aboutMe-bg2.jpg}" alt="" class="ui centered big rounded border image">
+      </div>
+  
+      <!-- 近况心情 -->
+      <div class="m-container-small m-margin-bt-large">
+        <div class="ui left aligned basic segment">
+          <h2>散言碎语</h2>
+        </div>
+  
+        <!-- 心情块 -->
+        <div class="ui  container">
+          <div class="ui one cards m-opcity">
+            <div class="teal card wow rotateIn ">
+              <div class="content">
+                <div class="header">2019年4月</div>
+                <div class="meta">心情不错</div>
+                <div class="description">
+                  快乐的一天
+                </div>
+              </div>
+            </div>
+            <div class="teal card wow rotateIn">
+              <div class="content">
+                <div class="header">Veronika Ossi</div>
+                <div class="meta">Friend</div>
+                <div class="description">
+                  Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+                </div>
+              </div>
+            </div>
+            <div class="teal card wow rotateIn">
+              <div class="content">
+                <div class="header">Jenny Hess</div>
+                <div class="meta">Friend</div>
+                <div class="description">
+                  Jenny is a student studying Media Management at the New School
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+  
+      <h4 class="ui horizontal divider header">
+        <i class="edit icon"></i>
+        欢迎评论
+      </h4>
+  
+        <!-- 评论区域 -->
+      <div id="leave-message" class="m-margin-bt-big">
+  
+          <!-- 评论区域列表 -->
+          <div class="ui teal segment" style="background-color: #f7f7f7; ">
+              <div class="ui threaded comments">
+                  <h3 class="ui dividing header">评论区</h3>
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="https://picsum.photos/id/1/100/100?image=1021">
+                    </a>
+                    <div class="content">
+                      <a class="author">Matt</a>
+                      <div class="metadata">
+                        <span class="date">Today at 5:42PM</span>
+                      </div>
+                      <div class="text">
+                        How artistic!
+                      </div>
+                      <div class="actions">
+                        <a class="reply">回复</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="https://picsum.photos/id/1/100/100?image=1021">
+                    </a>
+                    <div class="content">
+                      <a class="author">Elliot Fu</a>
+                      <div class="metadata">
+                        <span class="date">Yesterday at 12:30AM</span>
+                      </div>
+                      <div class="text">
+                        <p>This has been very useful for my research. Thanks as well!</p>
+                      </div>
+                      <div class="actions">
+                        <a class="reply">回复</a>
+                      </div>
+                    </div>
+                    <div class="comments">
+                      <div class="comment">
+                        <a class="avatar">
+                          <img src="https://picsum.photos/id/1/100/100?image=1021">
+                        </a>
+                        <div class="content">
+                          <a class="author">Jenny Hess</a>
+                          <div class="metadata">
+                            <span class="date">Just now</span>
+                          </div>
+                          <div class="text">
+                            Elliot you are always so right :)
+                          </div>
+                          <div class="actions">
+                            <a class="reply">回复</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="https://picsum.photos/id/1/100/100?image=1021">
+                    </a>
+                    <div class="content">
+                      <a class="author">Joe Henderson</a>
+                      <div class="metadata">
+                        <span class="date">5 days ago</span>
+                      </div>
+                      <div class="text">
+                        Dude, this is awesome. Thanks so much
+                      </div>
+                      <div class="actions">
+                        <a class="reply">回复</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- 评论输入区域 -->
+          <div class="ui form">
+              <div class="field">
+                  <textarea id="comment-text" name="content" placeholder="“登录后才可发表评论呀！”"  ></textarea>
+              </div>
+              <div class="fields">
+                  <div class="field m-mobile-wide m-margin-bottom-small">
+                      <div class="ui buttons">
+                          <button class="ui teal  button m-mobile-wide ">登录</button>
+                          <div class="or"></div>
+                          <button class="ui positive  button m-mobile-wide">注册</button>
+                      </div>
+                  </div>
+  
+                  <div class="field comment-tips m-mobile-wide m-margin-bottom-small" >
+                      
+                      <span>“已经有</span> 
+                      <span>1000</span>
+                      <span>评论了，快来发布你的想法吧！”</span>
+                  </div>
+  
+                  <div class=" field comment-submit m-mobile-wide m-margin-bottom-small">
+                      <button class="ui blue right floated  button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                  </div>
+              </div>
+          </div>
+  
+      </div>
+    </div>
+
+    
+    
+    
+
+  </div>
+  
+  
+ 
+
+  <!-- 底部 -->
+  <footer th:replace="common_frg :: footer_user" class="ui inverted vertical segment m-padd-foot-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item" >
+                        <img src="../static/images/weChat.png" alt="" style="width: 110px;">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-trspant">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">第一篇</a>
+                    <a href="#" class="item">第一篇</a>
+                    <a href="#" class="item">第一篇</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-trspant">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">第一篇</a>
+                    <a href="#" class="item">第一篇</a>
+                    <a href="#" class="item">第一篇</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-trspant">说点什么</h4>
+                <p class="m-text-thin m-text-spaced m-text-trspant-mini" >
+                    这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客
+                </p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-text-trspant-mini">copyright@123456 yrz</p>
+    </div>
+  </footer>
+</body>
+
+<!--/*/<th:block th:replace="common_frg :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="../static/js/common_index.js"></script>
+    <script src="../static/js/utils_js/wow.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script type="text/javascript">
+
+  　var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 200,
+        mobile: true,
+        live: true
+      });
+wow.init();
+</script>
+</html>

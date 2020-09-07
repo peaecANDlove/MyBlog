@@ -1,0 +1,119 @@
+.bodyBlog{
+    background: url("../images/content-bg.jpg") !important;
+}
+
+.toc-list{
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding-left: 10px !important;
+}
+
+.toc-list li a{
+    display: block !important;
+    padding: 4px 0 !important;
+    font-weight: 300 !important;
+}
+
+.is-active-link{
+    font-weight: 700 !important;
+    color: #228fbd !important;
+}
+
+.toc-link::before{
+    height: 20px !important;
+}
+
+.toc-list li a:hover{
+    color: #228fbd !important;
+}
+
+#article-header h1{
+   color: #00a6ac !important;
+}
+
+#article-header h1{
+    font-size: 40px !important;
+    font-family: 'headWord' !important;
+}
+
+#acticle-content p{
+    font-family: 'contentWord' !important;
+    line-height: 1.9 !important;
+    font-size: 17px;
+    letter-spacing: 0.25em;
+    text-indent: 1.5em;
+    color:#333;
+}
+
+#weChat-public h3{
+    padding-top: 1em !important;
+    font-family: 'dotted' !important;
+    font-size: 17px !important;
+    
+}
+
+#article-ending{
+    padding-bottom: 15px !important;
+}
+
+#admired-word{
+    padding-top: 15px !important;
+}
+
+#admired-word span{
+    font-family: 'dotted' !important;
+    font-size: 17px !important;
+}
+
+#admired-method img{
+    width: 150px !important; 
+}
+
+#admired-method p{
+    font-family: 'dotted' !important;
+    color: darkgrey !important;
+    font-weight: 600;
+}
+
+
+#article-info span{
+    font-family: 'headWord' !important;
+}
+
+.line{
+    margin: 15px 0 30px;
+    padding: 0.5em 1em;
+    border-left: 3px solid #afb4db;
+    background-color: 	#f3f3f3;
+    list-style: none;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+#article-tags a:hover{
+    color: #90d7ec !important;
+}
+
+.comment-tips{
+    margin-left: 150px !important;
+    margin-right: 150px !important;
+    
+    white-space:nowrap !important;
+}
+
+.comment-tips span{
+    font-family: 'dotted' !important;
+    font-size: 14px !important;
+}
+
+.comment-submit{
+    white-space: nowrap !important;
+}
+
+#comment-text{
+    background-color: #f3f4f5 !important;
+}
+
+.m-margin-bottom-small{
+    margin-bottom: 0.5em !important;
+}

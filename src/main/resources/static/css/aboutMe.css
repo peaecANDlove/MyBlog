@@ -1,0 +1,43 @@
+.bodyMe{
+    background: url('../images/aboutMe-bg-3.png') !important;
+}
+
+.aboutMe-info{
+    text-indent: 1.5em !important;
+    font-weight: 300 !important;
+    color: #444444 !important;
+    font-family: 'contentWord' !important;
+    font-size: 16px;
+    line-height: 1.45em ;
+    letter-spacing: 0.25em;
+}
+
+.m-opcity{
+    opacity: 0.75 !important;
+}
+
+
+.comment-tips{
+    margin-left: 160px !important;
+    margin-right: 160px !important;
+    
+    white-space:nowrap !important;
+}
+
+.comment-tips span{
+    font-family: 'dotted' !important;
+    font-size: 14px !important;
+}
+
+.comment-submit{
+    white-space: nowrap !important;
+}
+
+#comment-text{
+    background-color: #f3f4f5 !important;
+}
+
+.m-margin-bottom-small{
+    margin-bottom: 0.5em !important;
+}
+

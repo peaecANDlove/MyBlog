@@ -1,0 +1,40 @@
+#pagination ul,li {
+    list-style: none !important;
+}
+
+#pagination li a:hover{
+    cursor: pointer;
+    color: white;
+}
+
+#pagination li a{
+    cursor: pointer;
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+.page .am-active {
+    z-index: 2;
+    color: #fff;
+    background-color: #9b95c9;
+    border-color: #9b95c9;
+    cursor: default;
+}
+
+
+
+.page .am-active a{
+    color: white !important;
+}
+
+#pagination li {
+    float: left;
+    margin: 5px 5px;
+    padding: 8px 16px;
+
+}
+
+#pagination li a{
+    cursor: pointer;
+    color: #9b95c9 ;
+}

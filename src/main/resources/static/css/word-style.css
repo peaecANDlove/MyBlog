@@ -1,0 +1,19 @@
+@font-face{
+    font-family: "headWord";
+    src: url("../word/headWord.ttf");
+}
+
+@font-face{
+    font-family: "contentWord";
+    src: url("../word/contentWord.ttf");
+}
+
+@font-face{
+    font-family: "dotted";
+    src: url("../word/DottedSongtiSquareRegular.otf");
+}
+
+@font-face{
+    font-family: "pinying";
+    src: url("../word/FenPinYinTi-2.ttf");
+}

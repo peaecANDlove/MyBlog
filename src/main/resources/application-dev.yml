@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/my_blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    password: root
+    username: root
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+logging:
+  level:
+    root: info
+    com.peace.myblog: debug
+  file:
+    path: log/myblog-dev.log
+
+server:
+  port: 8080
+
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/common_frg_admin :: header_admin(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员登录</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/adminIndex.css">
+</head>
+<body class="bodyLogin">
+
+    <div class="m-container-minier ">
+
+    <div class="ui  container" style="padding-top: 15em;  ">
+
+        <div class="ui center aligned middle aligned container">
+            <div class="ui middle aligned center aligned grid">
+                <div class="column " >
+
+                    <div class="ui raised segments">
+                        <div class="ui  inverted segment" style="background: #926095 !important;">
+                            <div class="ui left aligned container">
+                                <h3>尊敬的管理员 Please Login</h3>
+                            </div>
+
+                        </div>
+                        <div class="ui segment" >
+
+                            <form class="ui large form admin" method="post" action="#" th:action="@{/admin/login}">
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="user icon"></i>
+                                        <input type="text" name="accountNumber" placeholder="账号">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="lock icon"></i>
+                                        <input type="password" name="password" placeholder="密码">
+                                    </div>
+                                </div>
+                                <button type="submit" class="ui blue submit button" >登   录</button>
+
+                                <div class="ui error mini message"></div>
+                                <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></div>
+
+                            </form>
+                        </div>
+                        <div class="ui segment">
+                            新用户？ <a href="login.php#">点击注册</a>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script>
+
+    $('.ui.form.admin').form({
+        on: 'blur',
+        fields : {
+            accountNumber:{
+                identifier: 'accountNumber',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: "账号不能为空"
+                    }
+                ]
+            },
+            password:{
+                identifier: 'password',
+                rules:[
+                    {
+                        type: 'empty',
+                        prompt: "密码不能为空"
+                    }
+                ]
+            }
+        }
+
+    });
+</script>
+</html>
