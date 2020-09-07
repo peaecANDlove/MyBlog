@@ -60,7 +60,7 @@ public interface BlogMapper {
     @Select("select count(1) from t_blog")
     Long countAllBlog();
 
-    @Select("select count(*) from t_blog where category_id = #{categoryId} order by ")
+    @Select("select count(*) from t_blog where category_id = #{categoryId}  ")
     Integer getNumberOfBlogByCategoeyId(Long categoryId);
 
     @Select("select title, create_time, views, category_id, id, tag_names from t_blog ")
