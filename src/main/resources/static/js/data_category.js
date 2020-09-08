@@ -1,6 +1,8 @@
 
 fillCategoryList();
 
+fillCategoryBlogMerge(1);
+
 //构建分类列表块
 function makeCategoryList(data) {
     var categoryList = $('.make-categoryList');
@@ -55,19 +57,105 @@ function fillCategoryList() {
 function makeCategoryBlogMerge(data) {
 
     var categoryInfo = $('.blog-category-merge');
+    categoryInfo.empty();
+
+    var categoryInfoDatas = data['data']['blogCategoryInfos'];
+    $.each(categoryInfoDatas, function (index, categoryInfoData) {
+
+        //解析底部标签列表
+        var tags = categoryInfoData['tagNames'].split(',');
+        var bottomTagLine = '';
+        $.each(tags, function (index, tagName) {
+            //todo
+            bottomTagLine +='<a class="m-color" href="/tag/?tagName="'+tagName+'>'+tagName+'</a>&nbsp; '
+        });
+
+        var categoryInfoBody = '<div class="block m-magin-bottom">\n' +
+            '\n' +
+            '                          <!-- 圆形标头 -->\n' +
+            '                          <span class="circle animation-left-c"></span>\n' +
+            '                          <!-- 分类明细块 -->\n' +
+            '                          <div class="ui raised segments m-inline-block m-margin-left animation-right" >\n' +
+            '\n' +
+            '                            <!-- 头部 -->\n' +
+            '                            <div class="ui secondary segment">\n' +
+            '                                  <div class="content con-head">\n' +
+            '                                    <a class="header-style " href="#">'+categoryInfoData['title']+'</a>\n' +
+            '                                  </div>\n' +
+            '                            </div>\n' +
+            '                              \n' +
+            '                            <div class="ui yellow secondary segment segment-width">\n' +
+            '                              <div class="ui horizontal list list-style">\n' +
+            '\n' +
+            '                                    <!-- 时间标签 -->\n' +
+            '                                    <div class="item">\n' +
+            '                                      <i class="blue calendar minus outline icon"></i>\n' +
+            '                                      <div class="content m-padding-zero-left" >\n' +
+            '                                        <a class=" m-color"  href="#">'+categoryInfoData['createTime']+'</a>\n' +
+            '                                      </div>\n' +
+            '                                    </div>\n' +
+            '    \n' +
+            '                                    <!-- 查看人数 -->\n' +
+            '                                    <div class="item">\n' +
+            '                                      <i class="red eye icon"></i>\n' +
+            '                                      <div class="content m-padding-zero-left">\n' +
+            '                                        <a class=" m-color" href="">'+categoryInfoData['views']+'</a>\n' +
+            '                                      </div>\n' +
+            '                                    </div>\n' +
+            '    \n' +
+            '                                    <!-- 分类文件夹 -->\n' +
+            '                                    <div class="item">\n' +
+            '                                      <i class="yellow folder open icon"></i>\n' +
+            '                                      <div class=" content m-padding-zero-left" >\n' +
+            '                                        <a class=" m-color" href="#">'+categoryInfoData['categoryName']+'</a>\n' +
+            '                                      </div>\n' +
+            '                                    </div>\n' +
+            '                                  \n' +
+            '                                    <!-- 分类标签 -->\n' +
+            '                                    <div class="item">\n' +
+            '                                      <i class="green tag icon"></i>\n' +
+            '                                      <div class="content m-padding-zero-left">\n' +
+            '                                        '+bottomTagLine+'\n' +
+            '                                      </div>\n' +
+            '                                    </div>  \n' +
+            '    \n' +
+            '                                  </div>\n' +
+            '                                </div>\n' +
+            '                          </div>\n' +
+            '                      </div>';
+        categoryInfo.append(categoryInfoBody);
+    });
 }
 
 //填充分类博客信息合并项
-
-function fillCategoryBlogMerge() {
+function fillCategoryBlogMerge(currentPage) {
 
     $.ajax({
-            type: 'get',
+            type: 'post',
             url: '/user/categoryBlogMergeList',
             dataType: 'json',
+            data: {
+                size:"3",
+                pageNum:currentPage
+            },
             success: function (data) {
                 if (data['status'] === 'success') {
+                    scrollTo(0,0);
                     makeCategoryBlogMerge(data);
+
+                    var pageInfo = data['data']['myPageInfo'];
+
+                    //分页显示
+                    $("#pagination").paging({
+                        rows: pageInfo['pageSize'],//每页显示条数
+                        pageNum: pageInfo['pageNum'],//当前所在页码
+                        pages: pageInfo['pages'],//总页数
+                        total: pageInfo['total'],//总记录数
+                        callback:function(currentPage){
+                            fillCategoryBlogMerge(currentPage);
+                        }
+                    });
+
                 } else {
                     alert('分类博客信息合并项数据请求错误');
                 }

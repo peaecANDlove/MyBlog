@@ -2,7 +2,6 @@ package com.peace.myblog.webController;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.peace.myblog.daoObject.Blog;
 import com.peace.myblog.dto.BlogCategoryInfo;
 import com.peace.myblog.dto.CategoryList;
 import com.peace.myblog.dto.CategoryReturn;
@@ -12,10 +11,7 @@ import com.peace.myblog.service.BlogService;
 import com.peace.myblog.service.CategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,18 +37,24 @@ public class UserCategoryController {
         return CommonReturnType.create(blogCategoryInfos);
     }
 
-    @GetMapping("/categoryBlogMergeList")
+    @PostMapping("/categoryBlogMergeList")
     public CommonReturnType categoryBlogMergeList(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
                                                   @RequestParam(value = "size", defaultValue = "3") Integer size) {
 
+
+
         String orderBy = "id desc";
         PageHelper.startPage(pageNum, size, orderBy);
-        List<Blog> blogs = blogService.getAllBlog();
-        PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
-        MyPageInfo myPageInfo = new MyPageInfo();
-        BeanUtils.copyProperties(pageInfo, myPageInfo);
         List<BlogCategoryInfo> blogCategoryInfos = categoryService.blogCategoryInfoList();
+        PageInfo<BlogCategoryInfo> pageInfo = new PageInfo<>(blogCategoryInfos);
+        for (BlogCategoryInfo blogCategoryInfo: blogCategoryInfos) {
+            blogCategoryInfo.setCategoryName((categoryService.getCategory(blogCategoryInfo.getCategoryId())).getName());
+        }
+
+        MyPageInfo myPageInfo = new MyPageInfo();
+
         CategoryReturn categoryReturn = new CategoryReturn();
+        BeanUtils.copyProperties(pageInfo, myPageInfo);
         categoryReturn.setBlogCategoryInfos(blogCategoryInfos);
         categoryReturn.setMyPageInfo(myPageInfo);
 

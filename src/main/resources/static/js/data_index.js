@@ -22,6 +22,7 @@ function makeArticleInfo(data) {
         var tags = articleInfo['tagNames'].split(',');
         var bottomTagLine = '';
         $.each(tags, function (index, tagName) {
+            //todo
             bottomTagLine +='<a href="/tag/?tagName="'+tagName+'><i class="grey tag icon" ></i><span>'+tagName+'</span></a>'
         });
 

@@ -102,9 +102,7 @@ public class CategoryServiceImpl implements CategoryService {
     public List<BlogCategoryInfo> blogCategoryInfoList() {
 
         List<BlogCategoryInfo> blogCategoryInfos = blogService.getAllBlogCategoryMerge();
-        for (BlogCategoryInfo blogCategoryInfo: blogCategoryInfos) {
-            blogCategoryInfo.setCategoryName((categoryMapper.getCategory(blogCategoryInfo.getCategoryId())).getName());
-        }
+
 
         return blogCategoryInfos;
     }
