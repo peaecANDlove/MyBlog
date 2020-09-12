@@ -1,6 +1,7 @@
 package com.peace.myblog.service;
 
 import com.peace.myblog.daoObject.Tag;
+import com.peace.myblog.dto.TagCloud;
 
 import java.util.List;
 
@@ -66,5 +67,8 @@ public interface TagService {
      * @return
      */
     List<Tag> getTagByBlogTagName(List<String> name);
+
+
+    List<TagCloud> getTagCloud();
 
 }

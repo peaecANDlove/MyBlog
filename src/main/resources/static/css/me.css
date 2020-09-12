@@ -249,6 +249,14 @@ html,body{
 .tag-bg{
     background: #fffffb !important;
 }
+.tagCloud a {
+    display: inline-block;
+    padding-right: 8px;
+}
+
+.tagCloud a:hover {
+    color: #00ccff !important;
+}
 
 
 

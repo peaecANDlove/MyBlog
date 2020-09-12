@@ -144,28 +144,16 @@ function makeArticleInfo(data) {
 function fillTagCloud() {
 
     $.ajax({
-        type: 'post',
+        type: 'get',
         url: '/user/tagCloud',
         dataType: 'json',
         success: function (data) {
             if (data['status'] === 'success') {
-                var res = data['data'];
-                var i;
-                var obj;
-                var array = [];
-                for (i = 0; i < res.length; i++) {
-                    obj = {};
-                    obj.text = res[i].tagName;
-                    obj.weight = parseInt(Math.random() * 9 + 1);
-                    // 根据 tag 显示具有该 tag 的文章
-                    //todo
-                    obj.link = "/" + res[i].text+"";
-                    array.push(obj);
-                }
-                $("#cloud").jQCloud(array, {
-                    removeOverflowing: true,
-                    shape: "elliptic",
-                    height: 200
+                $('.tagCloud').empty();
+
+                $.each(data['data'],function (index, tag) {
+                    var item = '<a href="/tag?tag='+tag['tagName']+'" style="font-size:'+tag['tagSize']+'px">'+tag['tagName']+'</a>';
+                    $(".tagCloud").append(item)
                 });
 
             } else {

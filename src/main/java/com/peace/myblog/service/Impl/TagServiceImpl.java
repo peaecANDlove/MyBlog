@@ -1,6 +1,7 @@
 package com.peace.myblog.service.Impl;
 
 import com.peace.myblog.daoObject.Tag;
+import com.peace.myblog.dto.TagCloud;
 import com.peace.myblog.error.MeNotFoundException;
 import com.peace.myblog.mapper.TagsMapper;
 import com.peace.myblog.service.TagService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -79,5 +81,27 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<Tag> getTagByBlogTagName(List<String> name) {
         return tagsMapper.getTagsByBlogTagName(name);
+    }
+
+
+    @Override
+    public List<TagCloud> getTagCloud() {
+        List<Tag> tags = this.getAllTag();
+
+        if (!tags.isEmpty()) {
+            List<TagCloud> tagClouds = new ArrayList<>();
+
+            for (Tag tag: tags) {
+                TagCloud tagCloud = new TagCloud();
+                tagCloud.setTagId(tag.getId());
+                tagCloud.setTagName(tag.getTagName());
+                tagCloud.setTagSize((int)((Math.random()*7))+10);
+                tagClouds.add(tagCloud);
+            }
+
+            return tagClouds;
+        }
+
+        return null;
     }
 }

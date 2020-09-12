@@ -64,12 +64,7 @@ public class UserIndexController {
     }
 
 
-    @PostMapping("/tagCloud")
-    public CommonReturnType getTagCloudData() {
 
-        List<Tag> tags = tagService.getAllTag();
-        return CommonReturnType.create(tags);
-    }
 
     @GetMapping("/recommendBlog")
     public CommonReturnType recommendBlog() {

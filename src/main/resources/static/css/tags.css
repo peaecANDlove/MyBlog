@@ -8,6 +8,10 @@
     font-weight: 500 !important;
 }
 
+.tag-size a{
+    font-size: 16px;
+}
+
 .content-seg a{
     color: #281f1d !important;
     font-size: 16px !important;
