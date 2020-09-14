@@ -91,7 +91,7 @@ function makeCategoryBlogMerge(data) {
             '                                    <div class="item">\n' +
             '                                      <i class="blue calendar minus outline icon"></i>\n' +
             '                                      <div class="content m-padding-zero-left" >\n' +
-            '                                        <a class=" m-color"  href="#">'+categoryInfoData['createTime']+'</a>\n' +
+            '                                        <a class=" m-color" href="#">'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'</a>\n' +
             '                                      </div>\n' +
             '                                    </div>\n' +
             '    \n' +
@@ -164,4 +164,28 @@ function fillCategoryBlogMerge(currentPage) {
                 alert("分类博客信息合并项错误");
             }
         });
+}
+
+// 时间格式转换
+function formatDate(time,format){
+    var date = new Date(time);
+
+    var year = date.getFullYear(),
+        month = date.getMonth()+1,//月份是从0开始的
+        day = date.getDate(),
+        hour = date.getHours(),
+        min = date.getMinutes(),
+        sec = date.getSeconds();
+    var preArr = Array.apply(null,Array(10)).map(function(elem, index) {
+        return '0'+index;
+    });
+
+    var newTime = format.replace(/YY/g,year)
+        .replace(/MM/g,preArr[month]||month)
+        .replace(/DD/g,preArr[day]||day)
+        .replace(/hh/g,preArr[hour]||hour)
+        .replace(/mm/g,preArr[min]||min)
+        .replace(/ss/g,preArr[sec]||sec);
+
+    return newTime;
 }

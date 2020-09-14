@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../static/css/utils.css" th:href="@{/css/utils.css}">
     <link rel="stylesheet" href="../static/css/category.css" th:href="@{/css/category.css}">
     <link rel="stylesheet" href="../static/css/word-style.css" th:href="@{/css/word-style.css}">
+    <link rel="stylesheet" th:href="@{/css/paging.css}">
 
   <style>
     
@@ -107,7 +108,7 @@
 
             <header class="m-header">#全部分类</header>
 
-              <div class="time-line " style="margin-left: 0px;">
+              <div class="time-line blog-category-merge" style="margin-left: 0px;">
 
                     <!-- 时间节点 -->
                   <div class="time-block m-padd-foot">
@@ -115,7 +116,7 @@
                       <div class="time m-inline-block">
                         <span class="sp-style animation-up">2020年</span>
                       </div>
-                    </div>
+                  </div>
 
                   <div class="block m-magin-bottom">
 
@@ -462,41 +463,33 @@
                           </div>
                       </div>
                   </div>
+              </div>
 
 
+              <div class="ui center aligned container m-margin-bt-large list">
 
-
-
-
-
-
-
-
-
-
-
-
+                  <div id="pagination" >
+                      <ul >
+                          <!--<li class="item"><a href="#">&laquo; 上一页</a></li>-->
+                          <!--<li class=""><a href="#">1</a></li>-->
+                          <!--<li><a href="#">2</a></li>-->
+                          <!--<li><a href="#">3</a></li>-->
+                          <!--<li><a href="#">4</a></li>-->
+                          <!--<li><a href="#">5</a></li>-->
+                          <!--<li class="item"><a href="#">下一页 &raquo;</a></li>-->
+                      </ul>
+                  </div>
 
               </div>
+
+
           </div>
+
+
       </div>
 
 
-      <!-- 底部分页按钮 -->
-      <div class="ui center aligned container ">
-        <a class="ui animated blue button m-margin-rf" href="#" tabindex="0">
-            <div class="visible  content">上一页</div>
-            <div class="hidden content">
-            <i class="left arrow icon"></i>
-            </div>
-        </a>
-        <a class="ui animated blue button m-margin-rf" href="#" tabindex="0">
-            <div class="visible content">下一页</div>
-            <div class="hidden content">
-            <i class="right arrow icon"></i>
-            </div>
-        </a>
-      </div>
+
 
 
 
@@ -549,5 +542,6 @@
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
     <script src="../static/js/common_index.js"></script>
 <!--/*/</th:block>/*/-->
+    <script th:src="@{/js/data_timeline.js}"></script>
 
 </html>

@@ -65,4 +65,5 @@ public interface CategoryService {
      */
     List<BlogCategoryInfo> blogCategoryInfoList();
 
+
 }
