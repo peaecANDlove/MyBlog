@@ -997,3 +997,289 @@ org.springframework.web.HttpRequestMethodNotSupportedException: Request method '
 2020-09-17 20:38:31.239  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
 2020-09-17 20:38:31.240  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : result:blogRecord
 2020-09-17 20:38:31.240  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 20:43:35.474  INFO 16436 --- [Thread-59] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-17 20:43:35.476  INFO 16436 --- [Thread-59] com.alibaba.druid.pool.DruidDataSource   : {dataSource-4} closed
+2020-09-17 20:43:35.605  INFO 16436 --- [restartedMain] com.peace.myblog.MyblogApplication       : Starting MyblogApplication on DESKTOP-T6MPADK with PID 16436 (F:\博客系统\myblog\target\classes started by 天霸 in F:\博客系统\myblog)
+2020-09-17 20:43:35.606 DEBUG 16436 --- [restartedMain] com.peace.myblog.MyblogApplication       : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-17 20:43:35.606  INFO 16436 --- [restartedMain] com.peace.myblog.MyblogApplication       : The following profiles are active: dev
+2020-09-17 20:43:35.849  INFO 16436 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-17 20:43:35.850  INFO 16436 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-17 20:43:35.850  INFO 16436 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-17 20:43:35.857  INFO 16436 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-17 20:43:35.857  INFO 16436 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 250 ms
+2020-09-17 20:43:36.195  INFO 16436 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1852b60f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d12dddf, org.springframework.security.web.header.HeaderWriterFilter@53448e04, org.springframework.security.web.authentication.logout.LogoutFilter@5d138193, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6521e5db, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e047d42, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@947f828, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8eb320f, org.springframework.security.web.session.SessionManagementFilter@25235be2, org.springframework.security.web.access.ExceptionTranslationFilter@2b051205, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5816a826]
+2020-09-17 20:43:36.268  INFO 16436 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-17 20:43:36.297  INFO 16436 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-17 20:43:36.320  WARN 16436 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-09-17 20:43:36.472  INFO 16436 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-17 20:43:36.481  INFO 16436 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-17 20:43:36.483  INFO 16436 --- [restartedMain] com.peace.myblog.MyblogApplication       : Started MyblogApplication in 0.896 seconds (JVM running for 1727.659)
+2020-09-17 20:43:36.484  INFO 16436 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-17 20:43:45.729  INFO 16436 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-17 20:43:45.730  INFO 16436 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-17 20:43:45.736  INFO 16436 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-09-17 20:43:45.739  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 20:43:45.748  INFO 16436 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-5} inited
+2020-09-17 20:43:45.787 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 20:43:45.787 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 20:43:45.788 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 20:43:45.789  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@4302d711
+2020-09-17 20:43:45.789  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:10:53.151  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:10:53.154  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:10:53.154  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:11:31.868  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:11:31.868  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:11:31.868  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:12:59.703  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:12:59.704  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:12:59.704  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:13:00.383  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:13:00.389 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:13:00.390 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:13:00.391 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:13:00.392  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@7cc66014
+2020-09-17 21:13:00.393  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:14:14.723  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:14:14.723  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:14:14.723  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:14:15.118  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:14:15.122 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:14:15.123 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:14:15.123 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:14:15.124  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@4df4f7f
+2020-09-17 21:14:15.124  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:14:29.689  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:14:29.690  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:14:29.690  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:14:30.071  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:14:30.071 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:14:30.071 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:14:30.074 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:14:30.075  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@18c85006
+2020-09-17 21:14:30.075  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:28.638  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:21:28.638  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:21:28.638  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:29.066  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:21:29.083 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:21:29.083 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:21:29.084 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:21:29.085  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@2be15662
+2020-09-17 21:21:29.085  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:40.464  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:21:40.465  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:21:40.465  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:41.672  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:21:41.672 DEBUG 16436 --- [http-nio-8080-exec-10] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:21:41.673 DEBUG 16436 --- [http-nio-8080-exec-10] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:21:41.673 DEBUG 16436 --- [http-nio-8080-exec-10] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:21:41.674  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@75a4a222
+2020-09-17 21:21:41.674  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:44.891  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:21:44.891  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:21:44.891  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:45.196  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:21:45.197 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:21:45.197 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:21:45.198 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:21:45.199  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@5bcbea05
+2020-09-17 21:21:45.199  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:53.322  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:21:53.322  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:21:53.322  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:21:54.013  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:21:54.014 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:21:54.014 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:21:54.015 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:21:54.016  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@5ac82c9f
+2020-09-17 21:21:54.016  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:25:10.685  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:25:10.685  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:25:10.685  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:25:10.994  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:25:10.998 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:25:10.999 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:25:11.000 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:25:11.001  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@6ebccc06
+2020-09-17 21:25:11.001  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:32:22.554  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:32:22.554  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:32:22.554  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:32:23.141  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:32:23.187 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:32:23.187 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:32:23.239 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:32:23.240  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@4e232071
+2020-09-17 21:32:23.240  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:32:43.270  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:32:43.270  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:32:43.270  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:32:44.045  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:32:44.045 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:32:44.046 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:32:44.046 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:32:44.047  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@47118c8d
+2020-09-17 21:32:44.047  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:33:37.660  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:33:37.660  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:33:37.660  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:33:38.929  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:33:38.930 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:33:38.930 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:33:38.930 DEBUG 16436 --- [http-nio-8080-exec-7] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:33:38.931  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@6b46eb8e
+2020-09-17 21:33:38.931  INFO 16436 --- [http-nio-8080-exec-7] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:34:17.979  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 21:34:17.980  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 21:34:17.980  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:34:18.385  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:34:18.385 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:34:18.385 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:34:18.386 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:34:18.387  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@2f1fbcbd
+2020-09-17 21:34:18.387  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 21:35:17.605  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 21:35:17.606 DEBUG 16436 --- [http-nio-8080-exec-10] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 21:35:17.606 DEBUG 16436 --- [http-nio-8080-exec-10] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 21:35:17.606 DEBUG 16436 --- [http-nio-8080-exec-10] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 21:35:17.607  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@5b9f8d2c
+2020-09-17 21:35:17.607  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:08.117  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 22:09:09.076 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 22:09:09.076 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 22:09:09.118 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 22:09:09.119  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@628a5436
+2020-09-17 22:09:09.119  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:16.126  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/index', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.index', args=[]}
+2020-09-17 22:09:16.126  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : result:index
+2020-09-17 22:09:16.127  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:17.041  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/tagCloud', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserTagController.getTagCloudData', args=[]}
+2020-09-17 22:09:17.071  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/recommendBlog', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserIndexController.recommendBlog', args=[]}
+2020-09-17 22:09:17.071  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/websiteInfo', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserIndexController.websiteInfo', args=[]}
+2020-09-17 22:09:17.125 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.BlogMapper.countAllBlog     : ==>  Preparing: select count(1) from t_blog
+2020-09-17 22:09:17.125 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.BlogMapper.countAllBlog     : ==> Parameters: 
+2020-09-17 22:09:17.285 DEBUG 16436 --- [http-nio-8080-exec-8] c.p.myblog.mapper.TagsMapper.getAllTag   : ==>  Preparing: select tag_name, id, create_time from t_tag
+2020-09-17 22:09:17.285 DEBUG 16436 --- [http-nio-8080-exec-8] c.p.myblog.mapper.TagsMapper.getAllTag   : ==> Parameters: 
+2020-09-17 22:09:17.357 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.BlogMapper.countAllBlog     : <==      Total: 1
+2020-09-17 22:09:17.357 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.CategoryMapper.countAllCategory  : ==>  Preparing: select count(1) from t_category
+2020-09-17 22:09:17.357 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.CategoryMapper.countAllCategory  : ==> Parameters: 
+2020-09-17 22:09:17.401 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.CategoryMapper.countAllCategory  : <==      Total: 1
+2020-09-17 22:09:17.401 DEBUG 16436 --- [http-nio-8080-exec-8] c.p.myblog.mapper.TagsMapper.getAllTag   : <==      Total: 7
+2020-09-17 22:09:17.401 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.TagsMapper.countAllTag      : ==>  Preparing: select count(1) from t_tag
+2020-09-17 22:09:17.401 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.TagsMapper.countAllTag      : ==> Parameters: 
+2020-09-17 22:09:17.401 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.mapper.BlogMapper.recommendBlog    : ==>  Preparing: select id, title, views from t_blog order by views asc limit 0,5
+2020-09-17 22:09:17.402 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.mapper.BlogMapper.recommendBlog    : ==> Parameters: 
+2020-09-17 22:09:17.452 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.TagsMapper.countAllTag      : <==      Total: 1
+2020-09-17 22:09:17.452 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.CommentMapper.countComment  : ==>  Preparing: select count(1) from t_comment
+2020-09-17 22:09:17.452 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.CommentMapper.countComment  : ==> Parameters: 
+2020-09-17 22:09:17.453 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.mapper.CommentMapper.countComment  : <==      Total: 1
+2020-09-17 22:09:17.458 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getBlogRecordTime              : ==>  Preparing: select create_time from t_blog_record order by id DESC limit 1
+2020-09-17 22:09:17.458 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getBlogRecordTime              : ==> Parameters: 
+2020-09-17 22:09:17.458  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/articleInfos', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserIndexController.getArticleInfo', args=[1, 3]}
+2020-09-17 22:09:17.463 DEBUG 16436 --- [http-nio-8080-exec-3] c.p.m.m.B.getBlogRecordTime              : <==      Total: 1
+2020-09-17 22:09:17.464  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@75b31240
+2020-09-17 22:09:17.464  INFO 16436 --- [http-nio-8080-exec-3] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:17.473 DEBUG 16436 --- [http-nio-8080-exec-2] c.p.m.mapper.BlogMapper.recommendBlog    : <==      Total: 5
+2020-09-17 22:09:17.594  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@5ffcccb
+2020-09-17 22:09:17.594  INFO 16436 --- [http-nio-8080-exec-8] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:17.599  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@3639c626
+2020-09-17 22:09:17.599  INFO 16436 --- [http-nio-8080-exec-2] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:17.649 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogSimple_COUNT         : ==>  Preparing: SELECT count(0) FROM t_blog
+2020-09-17 22:09:17.650 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogSimple_COUNT         : ==> Parameters: 
+2020-09-17 22:09:17.650 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogSimple_COUNT         : <==      Total: 1
+2020-09-17 22:09:17.651 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.BlogMapper.getAllBlogSimple      : ==>  Preparing: SELECT id, title, author_id, description, category_id, tag_names, mark_flag, views, create_time, update_time FROM t_blog order by id desc LIMIT ?
+2020-09-17 22:09:17.651 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.BlogMapper.getAllBlogSimple      : ==> Parameters: 3(Integer)
+2020-09-17 22:09:17.652 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.BlogMapper.getAllBlogSimple      : <==      Total: 3
+2020-09-17 22:09:17.748 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : ==>  Preparing: select nick_name, id from t_user where id = ?
+2020-09-17 22:09:17.748 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : ==> Parameters: 2(Long)
+2020-09-17 22:09:17.780 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : <==      Total: 1
+2020-09-17 22:09:17.801 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : ==>  Preparing: select name, id, create_time from t_category where id = ?
+2020-09-17 22:09:17.802 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : ==> Parameters: 9(Long)
+2020-09-17 22:09:17.804 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : <==      Total: 1
+2020-09-17 22:09:17.805 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : ==>  Preparing: select nick_name, id from t_user where id = ?
+2020-09-17 22:09:17.805 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : ==> Parameters: 2(Long)
+2020-09-17 22:09:17.806 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : <==      Total: 1
+2020-09-17 22:09:17.807 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : ==>  Preparing: select name, id, create_time from t_category where id = ?
+2020-09-17 22:09:17.807 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : ==> Parameters: 12(Long)
+2020-09-17 22:09:17.808 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : <==      Total: 1
+2020-09-17 22:09:17.809 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : ==>  Preparing: select nick_name, id from t_user where id = ?
+2020-09-17 22:09:17.809 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : ==> Parameters: 2(Long)
+2020-09-17 22:09:17.809 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.UserMapper.getUsernameAndId      : <==      Total: 1
+2020-09-17 22:09:17.810 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : ==>  Preparing: select name, id, create_time from t_category where id = ?
+2020-09-17 22:09:17.810 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : ==> Parameters: 5(Long)
+2020-09-17 22:09:17.810 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.mapper.CategoryMapper.getCategory  : <==      Total: 1
+2020-09-17 22:09:17.813  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@40c621af
+2020-09-17 22:09:17.813  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:19.695  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/timeline', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.timeLine', args=[]}
+2020-09-17 22:09:19.695  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : result:timeline
+2020-09-17 22:09:19.695  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:20.115  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/getArchives', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserTimelineController.getArchives', args=[]}
+2020-09-17 22:09:20.117  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/timelineCards', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserTimelineController.timelineCards', args=[1, 3]}
+2020-09-17 22:09:20.118 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.mapper.ArchiveMapper.findArchives  : ==>  Preparing: select archive_name from t_archive order by id desc
+2020-09-17 22:09:20.118 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.mapper.ArchiveMapper.findArchives  : ==> Parameters: 
+2020-09-17 22:09:20.685 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.B.getBlogCategoryMerge_COUNT     : ==>  Preparing: SELECT count(0) FROM t_blog
+2020-09-17 22:09:20.686 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.B.getBlogCategoryMerge_COUNT     : ==> Parameters: 
+2020-09-17 22:09:20.686 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.B.getBlogCategoryMerge_COUNT     : <==      Total: 1
+2020-09-17 22:09:20.687 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.BlogMapper.getBlogCategoryMerge  : ==>  Preparing: SELECT title, create_time, views, category_id, id, tag_names FROM t_blog order by create_time desc LIMIT ?
+2020-09-17 22:09:20.687 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.BlogMapper.getBlogCategoryMerge  : ==> Parameters: 3(Integer)
+2020-09-17 22:09:21.218 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.m.BlogMapper.getBlogCategoryMerge  : <==      Total: 3
+2020-09-17 22:09:21.220 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : ==>  Preparing: select name, id, create_time from t_category where id = ?
+2020-09-17 22:09:21.220 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : ==> Parameters: 18(Long)
+2020-09-17 22:09:21.220 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : <==      Total: 1
+2020-09-17 22:09:21.222 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : ==>  Preparing: select name, id, create_time from t_category where id = ?
+2020-09-17 22:09:21.222 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : ==> Parameters: 5(Long)
+2020-09-17 22:09:21.222 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : <==      Total: 1
+2020-09-17 22:09:21.223 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : ==>  Preparing: select name, id, create_time from t_category where id = ?
+2020-09-17 22:09:21.223 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : ==> Parameters: 9(Long)
+2020-09-17 22:09:21.224 DEBUG 16436 --- [http-nio-8080-exec-9] c.p.m.mapper.CategoryMapper.getCategory  : <==      Total: 1
+2020-09-17 22:09:21.230 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.mapper.ArchiveMapper.findArchives  : <==      Total: 3
+2020-09-17 22:09:21.426  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@43ace54f
+2020-09-17 22:09:21.426  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:21.522 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : ==>  Preparing: select count(*) from t_blog where publish_date = ?
+2020-09-17 22:09:21.626 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : ==> Parameters: 2020年8月(String)
+2020-09-17 22:09:21.626 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : <==      Total: 1
+2020-09-17 22:09:21.627 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : ==>  Preparing: select count(*) from t_blog where publish_date = ?
+2020-09-17 22:09:21.627 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : ==> Parameters: 2019年8月(String)
+2020-09-17 22:09:21.627 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : <==      Total: 1
+2020-09-17 22:09:21.628 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : ==>  Preparing: select count(*) from t_blog where publish_date = ?
+2020-09-17 22:09:21.628 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : ==> Parameters: 2019年7月(String)
+2020-09-17 22:09:21.628 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.BlogMapper.getArchiveNumber      : <==      Total: 1
+2020-09-17 22:09:21.629  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@4c67851b
+2020-09-17 22:09:21.629  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:24.646  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 22:09:24.646  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 22:09:24.646  INFO 16436 --- [http-nio-8080-exec-4] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:09:24.905  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 22:09:24.909 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 22:09:24.910 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 22:09:24.911 DEBUG 16436 --- [http-nio-8080-exec-1] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 22:09:24.914  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@637fc2b5
+2020-09-17 22:09:24.914  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:12:50.544  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 22:12:50.545  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 22:12:50.545  INFO 16436 --- [http-nio-8080-exec-10] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:12:50.932  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 22:12:50.938 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 22:12:50.938 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 22:12:50.939 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 22:12:50.940  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@9a2fb52
+2020-09-17 22:12:50.940  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:16:10.127  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 22:16:10.127  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 22:16:10.127  INFO 16436 --- [http-nio-8080-exec-1] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:16:10.580  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 22:16:10.584 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 22:16:10.584 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 22:16:10.585 DEBUG 16436 --- [http-nio-8080-exec-6] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 22:16:10.586  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@23b2bee8
+2020-09-17 22:16:10.586  INFO 16436 --- [http-nio-8080-exec-6] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:16:53.561  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/blogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserPageController.blogRecord', args=[]}
+2020-09-17 22:16:53.561  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : result:blogRecord
+2020-09-17 22:16:53.561  INFO 16436 --- [http-nio-8080-exec-9] com.peace.myblog.aspect.LogAspect        : _____doAfter______
+2020-09-17 22:16:53.863  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : RequestLog : Log {RequestURL='http://localhost:8080/user/listBlogRecord', visitorIp='0:0:0:0:0:0:0:1', classMethod='com.peace.myblog.webController.UserBlogRecord.listBlogRecord', args=[]}
+2020-09-17 22:16:53.863 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : ==>  Preparing: select record_word, id, create_time from t_blog_record
+2020-09-17 22:16:53.864 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : ==> Parameters: 
+2020-09-17 22:16:53.864 DEBUG 16436 --- [http-nio-8080-exec-5] c.p.m.m.B.getAllBlogRecord               : <==      Total: 4
+2020-09-17 22:16:53.866  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : result:com.peace.myblog.response.CommonReturnType@231f23ce
+2020-09-17 22:16:53.866  INFO 16436 --- [http-nio-8080-exec-5] com.peace.myblog.aspect.LogAspect        : _____doAfter______
