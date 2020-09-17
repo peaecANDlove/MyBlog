@@ -20,8 +20,8 @@ public interface BlogMapper {
             "from t_blog where id = #{id}")
     Blog getBlogById(Long id);
 
-    @Insert("insert into t_blog(title, description, content, first_picture,  author_id, category_id, tag_names, mark_flag, views, appreciation, share_statement, comment_able, published, recommend, create_time, update_time) " +
-            "values(#{title}, #{description}, #{content}, #{firstPicture},  #{authorId}, #{categoryId}, ifnull(#{tagNames}, tag_names), ifnull(#{markFlag}, mark_flag), ifnull(#{views}, views), ifnull(#{appreciation}, appreciation), ifnull(#{shareStatement}, share_statement), ifnull(#{commentAble}, comment_able), #{published}, ifnull(#{recommend}, recommend), #{createTime}, #{updateTime})")
+    @Insert("insert into t_blog(title, description, content, first_picture, publish_date, author_id, category_id, tag_names, mark_flag, views, appreciation, share_statement, comment_able, published, recommend, create_time, update_time) " +
+            "values(#{title}, #{description}, #{content}, #{firstPicture}, #{publishDate},   #{authorId}, #{categoryId}, ifnull(#{tagNames}, tag_names), ifnull(#{markFlag}, mark_flag), ifnull(#{views}, views), ifnull(#{appreciation}, appreciation), ifnull(#{shareStatement}, share_statement), ifnull(#{commentAble}, comment_able), #{published}, ifnull(#{recommend}, recommend), #{createTime}, #{updateTime})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void saveBlog(Blog blog);
 
@@ -66,5 +66,6 @@ public interface BlogMapper {
     @Select("select title, create_time, views, category_id, id, tag_names from t_blog ")
     List<BlogCategoryInfo> getBlogCategoryMerge();
 
-
+    @Select("select count(*) from t_blog where publish_date = #{archiveName} ")
+    Integer getArchiveNumber(String archiveName);
 }

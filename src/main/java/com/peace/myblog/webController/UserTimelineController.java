@@ -2,17 +2,16 @@ package com.peace.myblog.webController;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.peace.myblog.dto.ArchiveInfo;
 import com.peace.myblog.dto.BlogCategoryInfo;
 import com.peace.myblog.dto.CategoryReturn;
 import com.peace.myblog.dto.MyPageInfo;
 import com.peace.myblog.response.CommonReturnType;
+import com.peace.myblog.service.ArchiveService;
 import com.peace.myblog.service.CategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,7 +26,10 @@ public class UserTimelineController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/timelineCards")
+    @Autowired
+    private ArchiveService archiveService;
+
+    @PostMapping("/timelineCards")
     public CommonReturnType timelineCards(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
                                                   @RequestParam(value = "size", defaultValue = "3") Integer size) {
 
@@ -50,5 +52,11 @@ public class UserTimelineController {
 
 
         return CommonReturnType.create(categoryReturn);
+    }
+
+    @GetMapping("/getArchives")
+    public CommonReturnType getArchives(){
+        List<ArchiveInfo> archiveInfoList = archiveService.findArchiveNameAndArticleNum();
+        return CommonReturnType.create(archiveInfoList);
     }
 }

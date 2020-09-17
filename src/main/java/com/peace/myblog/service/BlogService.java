@@ -36,4 +36,6 @@ public interface BlogService {
 
     List<BlogCategoryInfo> getAllBlogCategoryMerge();
 
+    Integer getBlogsByArchive(String archiveName);
+
 }

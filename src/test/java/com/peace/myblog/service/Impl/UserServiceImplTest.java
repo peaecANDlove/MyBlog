@@ -38,6 +38,5 @@ class UserServiceImplTest {
 
     void selectAdmin() {
 
-
     }
 }

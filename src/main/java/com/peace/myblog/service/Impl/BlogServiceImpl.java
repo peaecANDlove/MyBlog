@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -92,6 +93,10 @@ public class BlogServiceImpl implements BlogService {
         if (blogModel.getId() == null) {
             blogModel.setCreateTime(new Date());
             blogModel.setUpdateTime(new Date());
+
+            SimpleDateFormat tempDate = new SimpleDateFormat("yyyy年MM月");
+            String publishDate = tempDate.format(new Date());
+            blogModel.setPublishDate(publishDate);
             blogModel.setViews(0);
 
             BeanUtils.copyProperties(blogModel, blog);
@@ -166,5 +171,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<BlogCategoryInfo> getAllBlogCategoryMerge() {
         return blogMapper.getBlogCategoryMerge();
+    }
+
+    @Override
+    public Integer getBlogsByArchive(String archiveName) {
+        return blogMapper.getArchiveNumber(archiveName);
     }
 }

@@ -23,6 +23,9 @@ public class BlogModel {
     private Long authorId;
     private String description;
 
+    // 发布时间
+    private String publishDate;
+
     //  分类id
     private Category category;
 
