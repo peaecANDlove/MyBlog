@@ -12,9 +12,9 @@ function makeBlogRecord(data) {
     $.each(blogRecordData, function (index, record) {
         var blogRecordBody = '<div class="item m-header-bottom">\n' +
             '                  <div class="header">\n' +
-            '                    <h4 class="record-content-header">'+timeTransfer(record['createTime'])+'</h4>\n' +
+            '                    <h4 class="record-content-header">'+(record['createTime'])+'</h4>\n' +
             '                  </div>\n' +
-            '                  <div class="content">'+record['recordWord']+'</div>\n' +
+            '                  <div class="content recordWord ">'+record['recordWord']+'</div>\n' +
             '                  <div class="ui center aligned container icon-top">\n' +
             '                    <i class=" arrow down icon"></i>\n' +
             '                  </div>\n' +
@@ -28,7 +28,7 @@ function makeBlogRecord(data) {
         '              <p class="record-ending">未完待续.......</p>\n' +
         '            </div>\n' +
         '            <div class="description">\n' +
-        '              <p style="color: #74787c;">你可以不漂亮，也可以不爱打扮，甚至可以很胖，你可以不优秀，可以不上进，甚至可以不聪明。但，我不可以。</p>\n' +
+        '              <p style="color: #74787c;">前程似锦 未来可期 寻得良人 共赴白头 祝你也祝我</p>\n' +
         '            </div>\n' +
         '            \n' +
         '          </div>\n' +
@@ -69,21 +69,3 @@ function fillBlogRecord() {
 
 
 
-// 时间格式转换
-function timeTransfer(time) {
-    var str = '';
-
-    for (var i=0; i<=9; i++) {
-        if (i == 4) continue;
-        if (i == 7) continue;
-       str+=time[i];
-       if (i== 3) str+='年';
-       if (i==6) str+='月';
-       if (i==9) str+='日';
-    }
-
-
-
-    return str;
-
-}

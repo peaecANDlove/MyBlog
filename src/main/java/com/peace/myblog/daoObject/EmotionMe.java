@@ -14,7 +14,8 @@ public class EmotionMe {
 
     private Long id;
     private String emotionWord;
+    private String category;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy年MM月dd日")
     private Date createTime;
 }

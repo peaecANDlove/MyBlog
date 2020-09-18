@@ -25,7 +25,13 @@
 }
 
 .record-content-header{
+    font-size: 18px !important;
+}
+.recordWord{
+    font-family: 'headWord' !important;
     font-size: 20px !important;
+    color: #918597 !important;
+
 }
 
 .record-ending{
@@ -33,36 +39,7 @@
     font-weight: 600;
 }
 
-.fadeIn-one {
-    animation: fadeIN;
-    -webkit-animation:fadeInDown 1s .5s ease both;
-    -moz-animation:fadeInDown 1s .5s ease both;
-}
-.fadeIn-two {
-    animation: fadeIN;
-    -webkit-animation:fadeInDown 1s 1s ease both;
-    -moz-animation:fadeInDown 1s 1s ease both;
-}
-.fadeIn-three {
-    animation: fadeIN;
-    -webkit-animation:fadeInDown 1s 1.5s ease both;
-    -moz-animation:fadeInDown 1s 1.5s ease both;
-}
-.fadeIn-four {
-    animation: fadeIN;
-    -webkit-animation:fadeInDown 1s 2s ease both;
-    -moz-animation:fadeInDown 1s 2s ease both;
-}
-.fadeIn-five {
-    animation: fadeIN;
-    -webkit-animation:fadeInDown 1s 2.5s ease both;
-    -moz-animation:fadeInDown 1s 2.5s ease both;
-}
-.fadeIn-six {
-    animation: fadeIN;
-    -webkit-animation:fadeInDown 1s 3s ease both;
-    -moz-animation:fadeInDown 1s 3s ease both;
-}
+
 @keyframes fadeInDown {
     0% {
     opacity:0;

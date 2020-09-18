@@ -17,6 +17,12 @@
     font-family: 'contentWord' !important;
 }
 
+.friendLink-h3{
+    font-size: 20px !important;
+    font-family: 'headWord' !important;
+    font-weight: 200 !important;
+}
+
 .friendLink-header{
     font-weight: 400 !important;
 }

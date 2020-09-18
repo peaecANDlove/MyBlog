@@ -51,11 +51,11 @@ public interface EmotionMapper {
      * 获取所有心情，用于分页展示
      * @return
      */
-    @Select("select emotion_word, id, create_time from t_emotion_me")
+    @Select("select emotion_word, id, create_time, category from t_emotion_me")
     List<EmotionMe> getAllBlogEmotion();
 
 
 
-    @Select("select emotion_word, id, create_time from t_emotion_me where emotion_word = #{emotionWord}")
+    @Select("select emotion_word, id, create_time, category from t_emotion_me where emotion_word = #{emotionWord}")
     EmotionMe getBlogEmotionByName(String emotionWord);
 }
