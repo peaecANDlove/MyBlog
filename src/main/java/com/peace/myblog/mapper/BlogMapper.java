@@ -16,7 +16,7 @@ import java.util.List;
 public interface BlogMapper {
 
 
-    @Select("select id, title, description, content, first_picture,  author_id, category_id, tag_names, mark_flag, views, appreciation, share_statement, comment_able, published, recommend, create_time, update_time " +
+    @Select("select id, title, description, content, first_picture, publish_date,  author_id, category_id, tag_names, mark_flag, views, appreciation, share_statement, comment_able, published, recommend, create_time, update_time " +
             "from t_blog where id = #{id}")
     Blog getBlogById(Long id);
 

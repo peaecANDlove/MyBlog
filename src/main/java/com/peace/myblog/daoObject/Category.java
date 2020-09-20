@@ -19,7 +19,7 @@ public class Category {
     @NotBlank(message = "分类名不能为空")
     private String name;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
 
 

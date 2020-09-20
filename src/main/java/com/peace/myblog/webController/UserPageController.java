@@ -64,6 +64,11 @@ public class UserPageController {
         return "travel";
     }
 
+    @GetMapping("/getBlogDetail/{id}")
+    public String readBlog() {
+        return "blog";
+    }
+
 
 
 

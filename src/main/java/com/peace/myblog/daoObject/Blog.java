@@ -20,6 +20,7 @@ public class Blog {
     private String firstPicture;
     private Long authorId;
     private String description;
+    private String publishDate;
 
 //  分类id
     private Long categoryId;
@@ -27,7 +28,7 @@ public class Blog {
 //  标签 id 字符串
     private String tagNames;
 
-//    原创=1，转载=2，翻译标签=3
+//    原创，转载，翻译标签
     private String markFlag;
 
 //    浏览次数
@@ -48,10 +49,10 @@ public class Blog {
 //    推荐
     private Boolean recommend;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date updateTime;
 
 

@@ -15,6 +15,6 @@ public class Tag {
     private Long id;
     private String tagName;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
 }

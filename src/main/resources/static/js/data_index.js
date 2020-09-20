@@ -38,7 +38,7 @@ function makeArticleInfo(data) {
             '\n' +
             '                                        <!-- 内容标题 -->\n' +
             '                                        <h4 class="m-text-middle  m-font-size-big m-margin-bt-mini">\n' +
-            '                                            <a class="m-text-color" href="http://www.w3school.com.cn/" >'+articleInfo['title']+'</a>\n' +
+            '                                            <a class="m-text-color" href="/user/getBlogDetail/'+articleInfo['id']+'" >'+articleInfo['title']+'</a>\n' +
             '                                        </h4>\n' +
             '\n' +
             '                                        <!-- 文章创作类型，作者，分类 -->\n' +
@@ -100,7 +100,7 @@ function makeArticleInfo(data) {
             '                                        <div class="left aligned five column">\n' +
             '                                            <div class="m-article-link">\n' +
                                                             //todo
-            '                                                <a href="#" >\n' +
+            '                                                <a href="/user/getBlogDetail/'+articleInfo['id']+'" >\n' +
             '                                                    阅读全文\n' +
             '                                                </a>\n' +
             '                                                <i class="hand point left outline icon"></i>\n' +
@@ -232,7 +232,7 @@ function makeRecommendBlog(data) {
 
         var recomendBody = '<div class="m-padd-rf-large m-padd-foot-small " style="background:#fffef9;">\n' +
             //   todo
-            '   <a href="/article/'+blog['id']+'" class="m-color ">'+blog['title']+'</a>\n' +
+            '   <a href="/user/getBlogDetail/'+blog['id']+'" class="m-color ">'+blog['title']+'</a>\n' +
             '    </div>';
         recommend.append(recomendBody);
 

@@ -3,6 +3,7 @@ package com.peace.myblog.service.Impl;
 import com.peace.myblog.daoObject.Blog;
 import com.peace.myblog.daoObject.Category;
 import com.peace.myblog.daoObject.Tag;
+import com.peace.myblog.daoObject.User;
 import com.peace.myblog.dto.BlogCategoryInfo;
 import com.peace.myblog.dto.BlogModel;
 import com.peace.myblog.dto.BlogSeach;
@@ -10,6 +11,7 @@ import com.peace.myblog.dto.WebsiteInfo;
 import com.peace.myblog.error.MeNotFoundException;
 import com.peace.myblog.mapper.*;
 import com.peace.myblog.service.BlogService;
+import com.peace.myblog.service.UserService;
 import com.peace.myblog.utils.StringBothConvertLongArray;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,9 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogRecordMapper blogRecordMapper;
 
+    @Autowired
+    private UserService userService;
+
 
     @Override
     @Transactional
@@ -57,6 +62,7 @@ public class BlogServiceImpl implements BlogService {
         Blog blog = getBlog(id);
         BlogModel returnBlogModel = new BlogModel();
         Category category = categoryMapper.getCategory(blog.getCategoryId());
+        User user = userService.getUsernameAndId(blog.getAuthorId());
         BeanUtils.copyProperties(blog, returnBlogModel);
         if (blog.getTagNames() != null) {
             List<Tag> tags = tagsMapper.getTagsByBlogTagName(StringBothConvertLongArray.convertToStringList(blog.getTagNames()));
@@ -64,6 +70,7 @@ public class BlogServiceImpl implements BlogService {
             returnBlogModel.setTagNames(blog.getTagNames());
         }
         returnBlogModel.setCategory(category);
+        returnBlogModel.setAuthorName(user.getNickName());
 
         return returnBlogModel;
     }
