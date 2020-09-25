@@ -44,6 +44,18 @@ public class UserPageController {
         return "timeline";
     }
 
+    @GetMapping("/categoryName/{categoryName}")
+    public String categoryName(){
+
+        return "category_name";
+    }
+
+    @GetMapping("/time/{createTime}")
+    public String timeLineDate() {
+
+        return "time";
+    }
+
     @GetMapping("/blogRecord")
     public String blogRecord() {
 

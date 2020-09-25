@@ -184,4 +184,14 @@ public class BlogServiceImpl implements BlogService {
     public Integer getBlogsByArchive(String archiveName) {
         return blogMapper.getArchiveNumber(archiveName);
     }
+
+    @Override
+    public List<BlogCategoryInfo> getBlogByPublishDate(String publishDate) {
+        return blogMapper.getBlogByPublishDate(publishDate);
+    }
+
+    @Override
+    public List<BlogCategoryInfo> getBlogByCategory(Long categoryId) {
+        return blogMapper.getBlogByCategoryId(categoryId);
+    }
 }

@@ -43,7 +43,7 @@ public class UserCategoryController {
 
 
 
-        String orderBy = "id desc";
+        String orderBy = "create_time desc";
         PageHelper.startPage(pageNum, size, orderBy);
         List<BlogCategoryInfo> blogCategoryInfos = categoryService.blogCategoryInfoList();
         PageInfo<BlogCategoryInfo> pageInfo = new PageInfo<>(blogCategoryInfos);
@@ -60,5 +60,51 @@ public class UserCategoryController {
 
 
         return CommonReturnType.create(categoryReturn);
+    }
+
+    @PostMapping("/listCategoryBlogMergeByTime/{createTime}")
+    public CommonReturnType listCategoryBlogMergeByTime(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
+                                                        @RequestParam(value = "size", defaultValue = "3") Integer size,
+                                                        @PathVariable("createTime") String createTime){
+
+        String[] time = createTime.split("-");
+        String publishDate = time[0]+"年"+time[1]+"月";
+        System.out.println(publishDate);
+        String orderBy = "create_time desc";
+        PageHelper.startPage(pageNum, size, orderBy);
+        List<BlogCategoryInfo> blogCategoryInfos = categoryService.listBlogCategoryByTime(publishDate);
+        PageInfo<BlogCategoryInfo> pageInfo = new PageInfo<>(blogCategoryInfos);
+        for (BlogCategoryInfo blogCategoryInfo: blogCategoryInfos) {
+            blogCategoryInfo.setCategoryName((categoryService.getCategory(blogCategoryInfo.getCategoryId())).getName());
+        }
+
+        MyPageInfo myPageInfo = new MyPageInfo();
+
+        CategoryReturn categoryReturn = new CategoryReturn();
+        BeanUtils.copyProperties(pageInfo, myPageInfo);
+        categoryReturn.setBlogCategoryInfos(blogCategoryInfos);
+        categoryReturn.setMyPageInfo(myPageInfo);
+
+        return CommonReturnType.create(categoryReturn);
+    }
+
+    @PostMapping("/listCategoryBlogMergeByName/{categoryName}")
+    public CommonReturnType listCategoryBlogMergeByName(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
+                                                        @RequestParam(value = "size", defaultValue = "3") Integer size,
+                                                        @PathVariable("categoryName") String categoryName) {
+        String orderBy = "create_time desc";
+        PageHelper.startPage(pageNum, size, orderBy);
+        List<BlogCategoryInfo> blogCategoryInfos = categoryService.listCategoryByCategoryName(categoryName);
+        PageInfo<BlogCategoryInfo> pageInfo = new PageInfo<>(blogCategoryInfos);
+        for (BlogCategoryInfo blogCategoryInfo: blogCategoryInfos) {
+            blogCategoryInfo.setCategoryName((categoryService.getCategory(blogCategoryInfo.getCategoryId())).getName());
+        }
+        MyPageInfo myPageInfo = new MyPageInfo();
+        CategoryReturn categoryReturn = new CategoryReturn();
+        BeanUtils.copyProperties(pageInfo, myPageInfo);
+        categoryReturn.setBlogCategoryInfos(blogCategoryInfos);
+        categoryReturn.setMyPageInfo(myPageInfo);
+        return CommonReturnType.create(categoryReturn);
+
     }
 }

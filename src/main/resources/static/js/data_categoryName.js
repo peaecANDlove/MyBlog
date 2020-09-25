@@ -1,12 +1,59 @@
 
-
-
+fillCategoryList();
 
 fillCategoryBlogMerge(1);
 
+//构建分类列表块
+function makeCategoryList(data) {
+    var categoryList = $('.make-categoryList');
+    categoryList.empty();
+    var categoryListData = data['data'];
+    var categoryListHeader = '<div class="item">\n' +
+        '                      <div class="content">\n' +
+        '                       <div class="ui left aligned container">\n' +
+        '                           <div class="header head-name">类目</div> \n' +
+        '                       </div>\n' +
+        '                       </div>\n' +
+        '                     </div>';
+    categoryList.append(categoryListHeader);
+    $.each(categoryListData, function (index, categoryListInfo) {
+        var categoryListBody = '<div class="item">\n' +
+            '                       <div class="content">\n' +
+            '                           <div class="ui left aligned container">\n' +
+            //todo
+            '                               <a href="#" class="m-font" >'+categoryListInfo['categoryName']+'</a> \n' +
+            '                               <span class="m-span-color">('+categoryListInfo['blogs']+')</span>\n' +
+            '                           </div>\n' +
+            '                       </div>\n' +
+            '                   </div>';
+        categoryList.append(categoryListBody);
+
+    });
+
+}
+
+//填充分类列表块数据
+function fillCategoryList() {
 
 
-fillTimeList();
+    $.ajax({
+        type: 'get',
+        url: '/user/categoryList',
+        dataType: 'json',
+        success: function (data) {
+            if (data['status'] === 'success') {
+                makeCategoryList(data);
+            } else {
+                alert('分类列表数据请求错误');
+            }
+        },
+        error: function () {
+            alert("分类列表错误");
+        }
+    });
+
+}
+
 //构建分类博客信息合并项
 function makeCategoryBlogMerge(data) {
 
@@ -45,7 +92,7 @@ function makeCategoryBlogMerge(data) {
             '                                    <div class="item">\n' +
             '                                      <i class="blue calendar minus outline icon"></i>\n' +
             '                                      <div class="content m-padding-zero-left" >\n' +
-            '                                        <a class=" m-color"  href="/user/time/'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'">'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'</a>\n' +
+            '                                        <a class=" m-color" href="/user/time/'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'">'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'</a>\n' +
             '                                      </div>\n' +
             '                                    </div>\n' +
             '    \n' +
@@ -77,35 +124,6 @@ function makeCategoryBlogMerge(data) {
             '                                </div>\n' +
             '                          </div>\n' +
             '                      </div>';
-        if (index === 0) {
-
-            var year = formatDate(categoryInfoData['createTime'],"YY");
-            var dueTime = ' <div class="time-block m-padd-foot">\n' +
-                '                      <span class="circle wrapper-span animation-up"></span>\n' +
-                '                      <div class="time m-inline-block animation-up">\n' +
-                '                        <span class="sp-style ">'+year+'年</span>\n' +
-                '                      </div>\n' +
-                '                  </div>';
-            categoryInfo.append(dueTime);
-        }
-        
-        if (index >= 1) {
-
-            var thisYear = formatDate(categoryInfoData['createTime'],"YY");
-            var prevYear = formatDate(categoryInfoDatas[index-1]['createTime'],'YY');
-
-            if (thisYear - prevYear === -1) {
-                var dueTime2 = ' <div class="time-block m-padd-foot">\n' +
-                    '                      <span class="circle wrapper-span animation-up"></span>\n' +
-                    '                      <div class="time m-inline-block animation-up">\n' +
-                    '                        <span class="sp-style ">'+thisYear+'年</span>\n' +
-                    '                      </div>\n' +
-                    '                  </div>';
-            }
-            categoryInfo.append(dueTime2);
-
-            
-        } 
         categoryInfo.append(categoryInfoBody);
     });
 }
@@ -113,9 +131,12 @@ function makeCategoryBlogMerge(data) {
 //填充分类博客信息合并项
 function fillCategoryBlogMerge(currentPage) {
 
+    var url = location.href;
+    var id = url.split("/");
+    var categoryName = id[5];
     $.ajax({
         type: 'post',
-        url: '/user/timelineCards',
+        url: '/user/listCategoryBlogMergeByName/'+categoryName,
         dataType: 'json',
         data: {
             size:"3",
@@ -148,60 +169,6 @@ function fillCategoryBlogMerge(currentPage) {
         }
     });
 }
-
-
-
-//构建时间列表
-function makeTimeList(data) {
-    var timeList = $('.time-data');
-    timeList.empty();
-
-    //时间数组
-    var timeListData = data['data'];
-    var timeListHeader = '<div class="item">\n' +
-        '                <div class="content">\n' +
-        '                  <div class="ui left aligned container">\n' +
-        '                    <div class="header head-name">时间会记录一切</div> \n' +
-        '                  </div>\n' +
-        '                </div>\n' +
-        '              </div>';
-    timeList.append(timeListHeader);
-    $.each(timeListData, function (index, time) {
-        var timeListBody = '<div class="item">\n' +
-            '                <div class="content">\n' +
-            '                  <div class="ui left aligned container">\n' +
-            //                   todo
-            '                    <a href="#" class="m-font" >'+time['archiveName']+' </a> \n' +
-            '                    <span class="m-span-color">('+time['numberOfBlog']+')</span>\n' +
-            '                  </div>\n' +
-            '                </div>\n' +
-            '              </div>';
-        timeList.append(timeListBody);
-    });
-
-}
-
-//填充时间列表
-function fillTimeList() {
-
-    $.ajax({
-            type: 'get',
-            url: '/user/getArchives',
-            dataType: 'json',
-            success: function (data) {
-                if (data['status'] === 'success') {
-                    makeTimeList(data);
-                } else {
-                    alert('时间列表数据请求错误');
-                }
-            },
-            error: function () {
-                alert("时间列表错误");
-            }
-        });
-}
-
-
 
 // 时间格式转换
 function formatDate(time,format){

@@ -214,6 +214,42 @@ function makeBlogDetail(data) {
         '    </div>\n' +
         '</div>';
     blogDetail.append(blogDetailBody);
+
+    $('#payButton').popup({
+        popup : $('.payQR'),
+        on : 'click',
+        position : 'top center'
+    });
+
+    //todo
+    // 弹出文章目录
+    $('.toc.button').popup({
+        popup : $('.toc-container'),
+        on : 'click',
+        position : 'top center'
+    });
+
+    // 生成网页二维码
+    var qrcode = new QRCode("qrcode", {
+        text: "http://jindo.dev.naver.com/collie",
+        width: 128,
+        height: 128,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function(direction) {
+            if(direction == 'down') {
+                $('#toolbar').show(500);
+
+            } else {
+                $('#toolbar').hide(500);
+            }
+        }
+    });
 }
 
 
@@ -222,7 +258,6 @@ function fillBlogDetail() {
     var url = location.href;
     var id = url.split("/");
     var articleId = id[5];
-    console.log(location.href);
 
     $.ajax({
             type: 'post',

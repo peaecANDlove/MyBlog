@@ -2,9 +2,8 @@
 
 
 
-fillCategoryBlogMerge(1);
 
-
+fillCategoryBlogMergeByTime(1);
 
 fillTimeList();
 //构建分类博客信息合并项
@@ -79,75 +78,23 @@ function makeCategoryBlogMerge(data) {
             '                      </div>';
         if (index === 0) {
 
-            var year = formatDate(categoryInfoData['createTime'],"YY");
+            var year = formatDate(categoryInfoData['createTime'],"YY/MM").split("/");
+            var yearAndMonth = year[0]+"年"+year[1]+'月';
             var dueTime = ' <div class="time-block m-padd-foot">\n' +
                 '                      <span class="circle wrapper-span animation-up"></span>\n' +
                 '                      <div class="time m-inline-block animation-up">\n' +
-                '                        <span class="sp-style ">'+year+'年</span>\n' +
+                '                        <span class="sp-style ">'+yearAndMonth+'</span>\n' +
                 '                      </div>\n' +
                 '                  </div>';
             categoryInfo.append(dueTime);
         }
         
-        if (index >= 1) {
 
-            var thisYear = formatDate(categoryInfoData['createTime'],"YY");
-            var prevYear = formatDate(categoryInfoDatas[index-1]['createTime'],'YY');
-
-            if (thisYear - prevYear === -1) {
-                var dueTime2 = ' <div class="time-block m-padd-foot">\n' +
-                    '                      <span class="circle wrapper-span animation-up"></span>\n' +
-                    '                      <div class="time m-inline-block animation-up">\n' +
-                    '                        <span class="sp-style ">'+thisYear+'年</span>\n' +
-                    '                      </div>\n' +
-                    '                  </div>';
-            }
-            categoryInfo.append(dueTime2);
-
-            
-        } 
         categoryInfo.append(categoryInfoBody);
     });
 }
 
-//填充分类博客信息合并项
-function fillCategoryBlogMerge(currentPage) {
 
-    $.ajax({
-        type: 'post',
-        url: '/user/timelineCards',
-        dataType: 'json',
-        data: {
-            size:"3",
-            pageNum:currentPage
-        },
-        success: function (data) {
-            if (data['status'] === 'success') {
-                scrollTo(0,0);
-                makeCategoryBlogMerge(data);
-
-                var pageInfo = data['data']['myPageInfo'];
-
-                //分页显示
-                $("#pagination").paging({
-                    rows: pageInfo['pageSize'],//每页显示条数
-                    pageNum: pageInfo['pageNum'],//当前所在页码
-                    pages: pageInfo['pages'],//总页数
-                    total: pageInfo['total'],//总记录数
-                    callback:function(currentPage){
-                        fillCategoryBlogMerge(currentPage);
-                    }
-                });
-
-            } else {
-                alert('分类博客信息合并项数据请求错误');
-            }
-        },
-        error: function () {
-            alert("分类博客信息合并项错误");
-        }
-    });
-}
 
 
 
@@ -201,7 +148,48 @@ function fillTimeList() {
         });
 }
 
+function fillCategoryBlogMergeByTime(currentPage) {
 
+    var url = location.href;
+    var id = url.split("/");
+    var createTime = id[5];
+
+    $.ajax({
+        type: 'post',
+        url: '/user/listCategoryBlogMergeByTime/'+createTime,
+        dataType: 'json',
+        data: {
+            size:"3",
+            pageNum:currentPage
+        },
+        success: function (data) {
+            if (data['status'] === 'success') {
+                scrollTo(0,0);
+                makeCategoryBlogMerge(data);
+
+                var pageInfo = data['data']['myPageInfo'];
+
+                //分页显示
+                $("#pagination").paging({
+                    rows: pageInfo['pageSize'],//每页显示条数
+                    pageNum: pageInfo['pageNum'],//当前所在页码
+                    pages: pageInfo['pages'],//总页数
+                    total: pageInfo['total'],//总记录数
+                    callback:function(currentPage){
+                        fillCategoryBlogMergeByTime(currentPage);
+                    }
+                });
+
+            } else {
+                alert('分类博客信息合并项数据请求错误');
+            }
+        },
+        error: function () {
+            alert("分类博客信息合并项错误");
+        }
+    });
+
+}
 
 // 时间格式转换
 function formatDate(time,format){

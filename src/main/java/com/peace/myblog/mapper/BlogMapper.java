@@ -68,4 +68,10 @@ public interface BlogMapper {
 
     @Select("select count(*) from t_blog where publish_date = #{archiveName} ")
     Integer getArchiveNumber(String archiveName);
+
+    @Select("select title, create_time, views, category_id, id, tag_names from t_blog where publish_date = #{publishDate}")
+    List<BlogCategoryInfo> getBlogByPublishDate(String publishDate);
+
+    @Select("select title, create_time, views, category_id, id, tag_names from t_blog where category_id = #{categoryId}")
+    List<BlogCategoryInfo> getBlogByCategoryId(Long categoryId);
 }

@@ -3,7 +3,6 @@ package com.peace.myblog.webController;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.peace.myblog.daoObject.Blog;
-import com.peace.myblog.daoObject.Tag;
 import com.peace.myblog.dto.*;
 import com.peace.myblog.response.CommonReturnType;
 import com.peace.myblog.service.BlogService;
@@ -41,7 +40,7 @@ public class UserIndexController {
     public CommonReturnType getArticleInfo(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
                                            @RequestParam(value = "size", defaultValue = "3") Integer size) {
         List<ArticleInfo> articleInfos = new ArrayList<>();
-        String orderBy = "id desc";
+        String orderBy = "create_time desc";
         PageHelper.startPage(pageNum, size, orderBy);
         List<Blog> blogs = blogService.getAllBlog();
         PageInfo<Blog> pageInfo = new PageInfo<>(blogs);

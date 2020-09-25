@@ -38,4 +38,8 @@ public interface BlogService {
 
     Integer getBlogsByArchive(String archiveName);
 
+    List<BlogCategoryInfo> getBlogByPublishDate(String publishDate);
+
+    List<BlogCategoryInfo> getBlogByCategory(Long categoryId);
+
 }

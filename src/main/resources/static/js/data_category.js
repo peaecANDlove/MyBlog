@@ -80,7 +80,7 @@ function makeCategoryBlogMerge(data) {
             '                            <!-- 头部 -->\n' +
             '                            <div class="ui secondary segment">\n' +
             '                                  <div class="content con-head">\n' +
-            '                                    <a class="header-style " href="#">'+categoryInfoData['title']+'</a>\n' +
+            '                                    <a class="header-style " href="/user/getBlogDetail/'+categoryInfoData['id']+'">'+categoryInfoData['title']+'</a>\n' +
             '                                  </div>\n' +
             '                            </div>\n' +
             '                              \n' +
@@ -91,7 +91,7 @@ function makeCategoryBlogMerge(data) {
             '                                    <div class="item">\n' +
             '                                      <i class="blue calendar minus outline icon"></i>\n' +
             '                                      <div class="content m-padding-zero-left" >\n' +
-            '                                        <a class=" m-color" href="#">'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'</a>\n' +
+            '                                        <a class=" m-color" href="/user/time/'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'">'+formatDate(categoryInfoData['createTime'],'YY-MM-DD')+'</a>\n' +
             '                                      </div>\n' +
             '                                    </div>\n' +
             '    \n' +

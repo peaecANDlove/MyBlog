@@ -66,4 +66,14 @@ public interface CategoryService {
     List<BlogCategoryInfo> blogCategoryInfoList();
 
 
+    /**
+     * 根据时间显示分类
+     * @param publishDate
+     * @return
+     */
+    List<BlogCategoryInfo> listBlogCategoryByTime(String publishDate);
+
+    List<BlogCategoryInfo> listCategoryByCategoryName(String categoryName);
+
+
 }

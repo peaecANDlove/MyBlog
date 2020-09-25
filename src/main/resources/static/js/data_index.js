@@ -56,7 +56,7 @@ function makeArticleInfo(data) {
             '                                            <div class="item" >\n' +
             '                                                <div class="create-time">\n' +
             '                                                    <i class="  calendar alternate icon m-i-remark m-create-time-color m-margin-zero-right m-padding-right-zero"></i>\n' +
-            '                                                    <a href="#" class="m-font-size-mini m-a-remark m-time-color" >'+formatDate(articleInfo['createTime'],"YY-MM-DD")+'</a>\n' +
+            '                                                    <a href="/user/time/'+formatDate(articleInfo['createTime'],"YY-MM-DD")+'" class="m-font-size-mini m-a-remark m-time-color" >'+formatDate(articleInfo['createTime'],"YY-MM-DD")+'</a>\n' +
             '                                                </div>\n' +
             '                                            </div>\n' +
             '\n' +
@@ -73,7 +73,7 @@ function makeArticleInfo(data) {
             '                                            <div class="item">\n' +
             '                                                <div class="contents">\n' +
             '                                                    <i class="folder icon m-i-remark m-padding-right-zero m-margin-zero-right "></i>\n' +
-            '                                                    <span>'+articleInfo['category']+'</span>\n' +
+            '                                                    <a href="/user/categoryName/'+articleInfo['category']+'" class="m-font-size-mini m-a-remark m-time-color">'+articleInfo['category']+'</a>\n' +
             '                                                </div>\n' +
             '                                            </div>\n' +
             '\n' +

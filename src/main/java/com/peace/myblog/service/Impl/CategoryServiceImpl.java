@@ -103,9 +103,22 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     public List<BlogCategoryInfo> blogCategoryInfoList() {
 
-        List<BlogCategoryInfo> blogCategoryInfos = blogService.getAllBlogCategoryMerge();
+
+        return blogService.getAllBlogCategoryMerge();
+    }
+
+    @Override
+    public List<BlogCategoryInfo> listBlogCategoryByTime(String publishDate) {
 
 
-        return blogCategoryInfos;
+
+        return blogService.getBlogByPublishDate(publishDate);
+    }
+
+    @Override
+    public List<BlogCategoryInfo> listCategoryByCategoryName(String categoryName) {
+        Category category = categoryMapper.getCategoryByName(categoryName);
+        return blogService.getBlogByCategory(category.getId());
+
     }
 }
