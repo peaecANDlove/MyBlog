@@ -9,6 +9,7 @@ import com.peace.myblog.dto.MyPageInfo;
 import com.peace.myblog.response.CommonReturnType;
 import com.peace.myblog.service.BlogService;
 import com.peace.myblog.service.CategoryService;
+import com.peace.myblog.service.TagService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,9 @@ public class UserCategoryController {
     @Autowired
     private BlogService blogService;
 
+    @Autowired
+    private TagService tagService;
+
     @GetMapping("/categoryList")
     public CommonReturnType categoryList(){
 
@@ -39,13 +43,14 @@ public class UserCategoryController {
 
     @PostMapping("/categoryBlogMergeList")
     public CommonReturnType categoryBlogMergeList(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
-                                                  @RequestParam(value = "size", defaultValue = "3") Integer size) {
+                                                  @RequestParam(value = "size", defaultValue = "3") Integer size,
+                                                  @RequestParam(defaultValue = "null", value = "categoryName") String categoryName) {
 
-
+        System.out.println(categoryName);
 
         String orderBy = "create_time desc";
         PageHelper.startPage(pageNum, size, orderBy);
-        List<BlogCategoryInfo> blogCategoryInfos = categoryService.blogCategoryInfoList();
+        List<BlogCategoryInfo> blogCategoryInfos = categoryService.blogCategoryInfo(categoryName);
         PageInfo<BlogCategoryInfo> pageInfo = new PageInfo<>(blogCategoryInfos);
         for (BlogCategoryInfo blogCategoryInfo: blogCategoryInfos) {
             blogCategoryInfo.setCategoryName((categoryService.getCategory(blogCategoryInfo.getCategoryId())).getName());
@@ -107,4 +112,24 @@ public class UserCategoryController {
         return CommonReturnType.create(categoryReturn);
 
     }
+
+    @PostMapping("/listCategoryBlogMergeByTag/{tagName}")
+    public CommonReturnType listCategoryBlogMergeByTag(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
+                                                       @RequestParam(value = "size", defaultValue = "3") Integer size,
+                                                       @PathVariable("tagName") String tagName) {
+        String orderBy = "create_time desc";
+        PageHelper.startPage(pageNum, size, orderBy);
+        List<BlogCategoryInfo> blogCategoryInfos = categoryService.listBlogCategoryByTagName(tagName);
+        PageInfo<BlogCategoryInfo> pageInfo = new PageInfo<>(blogCategoryInfos);
+        for (BlogCategoryInfo blogCategoryInfo: blogCategoryInfos) {
+            blogCategoryInfo.setCategoryName((categoryService.getCategory(blogCategoryInfo.getCategoryId())).getName());
+        }
+        MyPageInfo myPageInfo = new MyPageInfo();
+        CategoryReturn categoryReturn = new CategoryReturn();
+        BeanUtils.copyProperties(pageInfo, myPageInfo);
+        categoryReturn.setBlogCategoryInfos(blogCategoryInfos);
+        categoryReturn.setMyPageInfo(myPageInfo);
+        return CommonReturnType.create(categoryReturn);
+    }
+
 }

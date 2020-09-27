@@ -74,4 +74,11 @@ public interface BlogMapper {
 
     @Select("select title, create_time, views, category_id, id, tag_names from t_blog where category_id = #{categoryId}")
     List<BlogCategoryInfo> getBlogByCategoryId(Long categoryId);
+
+    @Select("select title, create_time, views, category_id, id, tag_names from t_blog where tag_names like concat('%',#{tag},'%') order by create_time desc")
+    List<BlogCategoryInfo> getBlogByTagName(String categoryName);
+
+
+    @Select("select title, create_time, views, category_id, id, tag_names from t_blog where category_id = ifnull(#{categoryId}, category_id)")
+    List<BlogCategoryInfo> getBlogCategory(Long categoryId);
 }

@@ -194,4 +194,14 @@ public class BlogServiceImpl implements BlogService {
     public List<BlogCategoryInfo> getBlogByCategory(Long categoryId) {
         return blogMapper.getBlogByCategoryId(categoryId);
     }
+
+    @Override
+    public List<BlogCategoryInfo> getBlogByTagName(String categoryName) {
+        return blogMapper.getBlogByTagName(categoryName);
+    }
+
+    @Override
+    public List<BlogCategoryInfo> getAllBlogCategory(Long categoryId) {
+        return blogMapper.getBlogCategory(categoryId);
+    }
 }

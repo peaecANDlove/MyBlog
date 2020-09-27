@@ -20,8 +20,8 @@ function makeCategoryList(data) {
         var categoryListBody = '<div class="item">\n' +
             '                       <div class="content">\n' +
             '                           <div class="ui left aligned container">\n' +
-                                            //todo
-            '                               <a href="#" class="m-font" >'+categoryListInfo['categoryName']+'</a> \n' +
+
+            '                               <a href="/user/category?categoryName='+categoryListInfo['categoryName']+'" class="m-font" >'+categoryListInfo['categoryName']+'</a> \n' +
             '                               <span class="m-span-color">('+categoryListInfo['blogs']+')</span>\n' +
             '                           </div>\n' +
             '                       </div>\n' +
@@ -80,7 +80,7 @@ function makeCategoryBlogMerge(data) {
             '                            <!-- 头部 -->\n' +
             '                            <div class="ui secondary segment">\n' +
             '                                  <div class="content con-head">\n' +
-            '                                    <a class="header-style " href="/user/getBlogDetail/'+categoryInfoData['id']+'">'+categoryInfoData['title']+'</a>\n' +
+            '                                    <a class="header-style" href="/user/getBlogDetail/'+categoryInfoData['id']+'">'+categoryInfoData['title']+'</a>\n' +
             '                                  </div>\n' +
             '                            </div>\n' +
             '                              \n' +
@@ -130,13 +130,21 @@ function makeCategoryBlogMerge(data) {
 //填充分类博客信息合并项
 function fillCategoryBlogMerge(currentPage) {
 
+    var checkUrl = location.href;
+    var parameters = checkUrl.split("=");
+    var category = parameters[1];
+    if (category === undefined){
+        category = null;
+    }
+
     $.ajax({
             type: 'post',
             url: '/user/categoryBlogMergeList',
             dataType: 'json',
             data: {
                 size:"3",
-                pageNum:currentPage
+                pageNum:currentPage,
+                categoryName:decode(category)
             },
             success: function (data) {
                 if (data['status'] === 'success') {
@@ -188,4 +196,27 @@ function formatDate(time,format){
         .replace(/ss/g,preArr[sec]||sec);
 
     return newTime;
+}
+
+function decode(inputStr){
+    var resultArr =[];
+    if (inputStr == null) return;
+    for(var i=0;i<inputStr.length;i++){
+        var chr = inputStr.charAt(i);
+        if(chr == "+"){
+            resultArr[resultArr.length]=" ";
+        }else if(chr=="%"){
+            var asc = inputStr.substring(i+1,i+3);
+            if(parseInt("0x"+asc)>0x7f){
+                resultArr[resultArr.length]= decodeURI(inputStr.substring(i,i+9));
+                i+=8;
+            }else{
+                resultArr[resultArr.length]=String.fromCharCode(parseInt("0x"+asc));
+                i+=2;
+            }
+        }else{
+            resultArr[resultArr.length]= chr;
+        }
+    }
+    return resultArr.join("");
 }

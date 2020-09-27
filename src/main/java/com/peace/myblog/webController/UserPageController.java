@@ -50,6 +50,12 @@ public class UserPageController {
         return "category_name";
     }
 
+    @GetMapping("/tag/{tagName}")
+    public String listBlogByTag(){
+
+        return "tags";
+    }
+
     @GetMapping("/time/{createTime}")
     public String timeLineDate() {
 
@@ -61,6 +67,7 @@ public class UserPageController {
 
         return "blogRecord";
     }
+
 
 
 

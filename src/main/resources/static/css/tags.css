@@ -2,11 +2,7 @@
     background: url('../images/bg-block.png') !important;
 }
 
-.tags-box{
-    font-family: 'contentWord' !important;
-    font-size: 20px !important;
-    font-weight: 500 !important;
-}
+
 
 .tag-size a{
     font-size: 16px;
@@ -31,9 +27,6 @@
     font-weight: 400 !important;
 }
 
-.time-line{
-    border-left: 3px solid #afb4db !important;
-}
 
 .circle-tags{
     

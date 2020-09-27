@@ -42,4 +42,7 @@ public interface BlogService {
 
     List<BlogCategoryInfo> getBlogByCategory(Long categoryId);
 
+    List<BlogCategoryInfo> getBlogByTagName(String categoryName);
+
+    List<BlogCategoryInfo> getAllBlogCategory(Long categoryId);
 }

@@ -121,4 +121,22 @@ public class CategoryServiceImpl implements CategoryService {
         return blogService.getBlogByCategory(category.getId());
 
     }
+
+    @Override
+    public List<BlogCategoryInfo> listBlogCategoryByTagName(String categoryName) {
+        return blogService.getBlogByTagName(categoryName);
+    }
+
+    @Override
+    public List<BlogCategoryInfo> blogCategoryInfo(String categoryName) {
+        System.out.println(categoryName);
+        if (!categoryName.equals("null")) {
+            Category categoryId = categoryMapper.getCategoryByName(categoryName);
+            return blogService.getAllBlogCategory(categoryId.getId());
+
+        } else {
+            return blogService.getAllBlogCategoryMerge();
+        }
+
+    }
 }

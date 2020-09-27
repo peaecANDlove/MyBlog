@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
     <link rel="stylesheet" href="../static/css/utils.css" th:href="@{/css/utils.css}">
     <link rel="stylesheet" href="../static/css/word-style.css" th:href="@{/css/word-style.css}">
-    <link rel="stylesheet" href="../static/css/tags.css" th:href="@{/css/tags.css}">
+    <link rel="stylesheet" href="../static/css/category.css" th:href="@{/css/category.css}">
+    <link rel="stylesheet" th:href="@{/css/paging.css}">
 
   <style>
     
@@ -18,7 +19,7 @@
 </head>
 
 
-<body class="bodyTags">
+<body class="bodyCategory">
 
   <!-- 导航 -->
   <nav th:replace="common_frg :: menu(3)" class="ui inverted attached segment m-padd-top-mini m-shadow-small">
@@ -55,55 +56,44 @@
         <img src="../static/images/tags-bg.png" th:src="@{/images/tags-bg.png}" alt="" class="ui rounded image">
       </div>
 
-      <div class="one wide column"></div>
+      <div class="two wide column"></div>
 
-      <div class="nine wide column m-margin-bt fill-tag-box">
+      <div class="eight wide column m-margin-bt ">
 
-            <div class="ui center aligned container m-padd-bottom tag-header">
-              <h3 class="m-inline-block">“已经创建了</h3>
-              <h2 class="m-inline-block swing-sway">34</h2>
-              <h3 class="m-inline-block">个标签！”</h3>
-            </div>
 
-            <div class="ui center aligned container m-padd-bottom tag-size fill-tag-boxIn">
-                <div>
-                    <a class="" href="">主页</a>
-                    <div class="divider m-inline-block m-padd-rf-small"> / </div>
-                </div>
-            </div>
 
+              <div class="tag-data">
+
+                  <div class="time-line time-pre blog-category-merge" style="margin-left: 0px;">
+                  </div>
+              </div>
+
+
+
+              <!-- 底部分页按钮 -->
+              <!-- 底部分页按钮 -->
+              <div class="ui center aligned container m-margin-bt-large list">
+
+                  <div id="pagination" >
+                      <ul >
+                          <!--<li class="item"><a href="#">&laquo; 上一页</a></li>-->
+                          <!--<li class=""><a href="#">1</a></li>-->
+                          <!--<li><a href="#">2</a></li>-->
+                          <!--<li><a href="#">3</a></li>-->
+                          <!--<li><a href="#">4</a></li>-->
+                          <!--<li><a href="#">5</a></li>-->
+                          <!--<li class="item"><a href="#">下一页 &raquo;</a></li>-->
+                      </ul>
+                  </div>
+
+              </div>
 
 
            
       </div>
 
-      <!--<div class="four wide column">-->
-
-        <!--<div class=" folder-label-header " style="margin-top: 30px;">-->
-          <!--<h4>tag-folder#</h4>-->
-        <!--</div>-->
 
 
-        <!--<div class="time-line m-margin-left">-->
-
-          <!---->
-
-          <!--<div class="folder-label m-div-bottom fadeInDown">-->
-            <!--<span class="circle-tag"></span>-->
-            <!--<a href="" class="ui red tag label">springboot</a>-->
-          <!--</div>-->
-          <!--<div class="folder-label m-div-bottom fadeInDown">-->
-            <!--<span class="circle-tag"></span>-->
-            <!--<a href="" class="ui  yellow tag label">springboot</a>-->
-          <!--</div>-->
-          <!--<div class="folder-label m-div-bottom fadeInDown">-->
-            <!--<span class="circle-tag"></span>-->
-            <!--<a href="" class="ui orange tag label">springboot</a>-->
-          <!--</div>-->
-          <!---->
-        <!--</div>-->
-        <!---->
-      <!--</div>-->
     </div>
    
 

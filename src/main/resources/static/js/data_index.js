@@ -23,7 +23,7 @@ function makeArticleInfo(data) {
         var bottomTagLine = '';
         $.each(tags, function (index, tagName) {
             //todo
-            bottomTagLine +='<a href="/tag/?tagName="'+tagName+'><i class="grey tag icon" ></i><span>'+tagName+'</span></a>'
+            bottomTagLine +='<a href="/user/tag/'+tagName+'"><i class="grey tag icon" ></i><span>'+tagName+'</span></a>'
         });
 
         //文章缩略主体
@@ -152,7 +152,7 @@ function fillTagCloud() {
                 $('.tagCloud').empty();
 
                 $.each(data['data'],function (index, tag) {
-                    var item = '<a href="/tag?tag='+tag['tagName']+'" style="font-size:'+tag['tagSize']+'px">'+tag['tagName']+'</a>';
+                    var item = '<a href="/user/tag/'+tag['tagName']+'" style="font-size:'+tag['tagSize']+'px">'+tag['tagName']+'</a>';
                     $(".tagCloud").append(item)
                 });
 

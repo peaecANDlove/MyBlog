@@ -76,4 +76,7 @@ public interface CategoryService {
     List<BlogCategoryInfo> listCategoryByCategoryName(String categoryName);
 
 
+    List<BlogCategoryInfo> listBlogCategoryByTagName(String categoryName);
+
+    List<BlogCategoryInfo> blogCategoryInfo(String categoryName);
 }
