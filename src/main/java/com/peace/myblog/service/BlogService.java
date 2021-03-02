@@ -16,6 +16,8 @@ public interface BlogService {
 
     Blog getBlog(Long id);
 
+    Blog getAndConvert(Long id);
+
     BlogModel getBlogModel(Long id);
 
     List<Blog> getAllBlog(BlogSeach blog);
@@ -45,4 +47,6 @@ public interface BlogService {
     List<BlogCategoryInfo> getBlogByTagName(String categoryName);
 
     List<BlogCategoryInfo> getAllBlogCategory(Long categoryId);
+
+    List<BlogCategoryInfo> getAllBlogCategoryByTime(String publishDate);
 }

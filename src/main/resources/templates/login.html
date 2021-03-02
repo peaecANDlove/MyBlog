@@ -1,102 +1,94 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head >
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>登录页面</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
-    <link rel="stylesheet" href="../static/css/utils.css" th:href="@{/css/utils.css}">
-    <link rel="stylesheet" href="../static/css/word-style.css" th:href="@{/css/word-style.css}">
-    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
-
-
+<head>
+    <meta charset="UTF-8">
+    <title> 登录</title>
+    <link href="https://cdn.bootcss.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/login.css" th:href="@{/css/login.css}">
 </head>
+<body id="login">
+    <div class="form-container">
+        <div class="inner-container">
+            <header class="banner">
+                <div id="header">
+                    <div class="logo"></div>
+                </div>
+            </header>
+            <div class="main am-animation-slide-top">
+                <form method="post" name="login" action="" onsubmit="return loginSubmitCheck()">
+                    <fieldset>
+                        <div id="message" class="hidden">
+                            <!--<img alt src="../static/illust_66860959_20180120_123411.jpg">-->
+                            <span id="messageText"></span>
+                        </div>
 
 
-<body class="bodyLogin">
+                        <div class="username-box">
+                            <input type="text" placeholder="输入手机号" class="username" name="username">
+                            <span class="icon-double-telephone"></span>
+                        </div>
 
 
-    <div class="m-container-minier ">
+                        <div class="code-box box-hidden">
+                            <input type="text" placeholder="请输入手机验证码" class="telephone-code">
+                            <a id="send-message" class="entry"  href="#">获取短信验证码</a>
+                        </div>
 
-        <div class="ui  container" style="padding-top: 12em;  ">
+                        <div class="real-username-box box-hidden">
+                            <input type="text" placeholder="请输入用户名" id="real-userName">
+                        </div>
 
-
-            <div class="ui center aligned middle aligned container">
-                <div class="ui middle aligned center aligned grid">
-                    <div class="column " >
-
-
-                        <div class="ui raised segments">
-                            <div class="ui  inverted segment" style="background: #926095 !important;">
-                                <div class="ui left aligned container">
-                                    <h3>Please Login</h3>
-                                </div>
-
-                            </div>
-                            <div class="ui segment" >
-
-                                <form class="ui large login form " method="post"  >
-
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="user icon"></i>
-                                            <input type="text" name="username" placeholder="账号">
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="lock icon"></i>
-                                            <input type="password" name="password" placeholder="密码">
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="ui blue submit button" >登   录</button>
-
-                                    <div class="ui error message" >
-                                        用户名密码不能为空
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="ui segment">
-                                新用户？ <a href="login.php#">点击注册</a>
-                            </div>
+                        <div class="password-box">
+                            <input type="password" placeholder="输入密码" class="password" name="password">
+                            <span class="am-icon-check icon-double-password"></span>
                         </div>
 
 
 
+                        <div class="new-password box-hidden">
+                            <input type="password" placeholder="输入新的密码" id="new-password">
+                            <span class="am-icon-check icon-double-newPassword"></span>
+                        </div>
+
+
+                        <div class="check-new-password box-hidden">
+                            <input type="password" placeholder="再次确认你的密码" id="check-new-password">
+                            <span class="am-icon-close icon-check-newPassword"></span>
+                        </div>
 
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="ui error message" th:if="${param.error}">
-                <span th:text="${session?.SPRING_SECURITY_LAST_EXCEPTION?.message}" ></span>
+                        <div class="submit-box am-animation-slide-top">
+                            <input type="submit" value="登录" class="submit-btn" id="submit">
+                            <div class="submit-icon"></div>
+                        </div>
+
+
+                        <div class="sign-in-box am-animation-slide-top box-hidden">
+                            <input type="button" value="注册" class="submit-btn" id="sign-in">
+                            <div class="sign-icon"></div>
+                        </div>
+
+                        <div class="reset-box box-hidden am-animation-slide-bottom">
+                            <input type="button" value="重置密码" class="submit-btn" id="reset-btn">
+                        </div>
+
+                        <div class="reset-password-container">
+                            <!--<a href="https://graph.qq.com/oauth/show?which=Login&display=pc&response_type=code&client_id=101579617&redirect_uri=https://www.neroarc.cn/qq/login" class="login-qq">QQ登录</a>-->
+                            <!--<a href="https://graph.qq.com/oauth/show?which=Login&display=pc&response_type=code&client_id=101500101&redirect_uri=http://localhost/test/dologin" class="login-qq">QQ登录</a>-->
+                            <a href="#" class="lost-password">忘记密码</a>
+                            <a href="#" class="sign-in">注册</a>
+                            <a href="#" class="return-back  box-hidden">返回登录</a>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
-
-
-
-
     </div>
 
 
-
-
-
-
 </body>
-
-<script>
-
-</script>
-
-<!--/*/<th:block th:replace="common_frg :: script">/*/-->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-    <script src="../static/js/common_index.js"></script>
-    <script src="../static/js/utils_js/wow.min.js"></script>
-<!--/*/</th:block>/*/-->
-
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/layer/2.1/layer.js"></script>
+<script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
 </html>

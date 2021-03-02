@@ -31,13 +31,14 @@ public class UserTimelineController {
 
     @PostMapping("/timelineCards")
     public CommonReturnType timelineCards(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
-                                                  @RequestParam(value = "size", defaultValue = "3") Integer size) {
+                                          @RequestParam(value = "size", defaultValue = "3") Integer size,
+                                          @RequestParam(value = "createTime", defaultValue = "null") String createTime) {
 
 
 
         String orderBy = "create_time desc";
         PageHelper.startPage(pageNum, size, orderBy);
-        List<BlogCategoryInfo> blogCategoryInfos = categoryService.blogCategoryInfoList();
+        List<BlogCategoryInfo> blogCategoryInfos = categoryService.blogCategoryInfoByTime(createTime);
         PageInfo<BlogCategoryInfo> pageInfo = new PageInfo<>(blogCategoryInfos);
         for (BlogCategoryInfo blogCategoryInfo: blogCategoryInfos) {
             blogCategoryInfo.setCategoryName((categoryService.getCategory(blogCategoryInfo.getCategoryId())).getName());

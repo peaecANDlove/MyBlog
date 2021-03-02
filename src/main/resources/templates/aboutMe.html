@@ -50,16 +50,18 @@
 
 
     <div class="ui container">
-      <div class="ui basic segment">
+      <div class="ui basic segment wow slideInDown">
         <div class="ui center aligned container">
           <h2>About-ME</h2>
         </div>
       </div>
   
       <!-- 头部图片 -->
-      <div class="ui basic segment">
-          <img src="../static/images/aboutMe-bg3.jpg" th:src="@{/images/aboutMe-bg3.jpg}" alt="" class="ui centered big  rounded border image">
+      <div class="ui basic segment ">
+          <img src="../static/images/aboutMe-bg3.jpg" th:src="@{/images/aboutMe-bg3.jpg}" alt="" class="ui centered big  rounded border image wow slideInDown">
       </div>
+
+        <div class="ui divider wow slideInDown"></div>
   
       <!-- 自我介绍 -->
       <div class="m-container-small">
@@ -69,7 +71,7 @@
           </div>
           
           <p class="aboutMe-info" style="color: #6b6b6b !important;">
-            余睿哲，目前在成都西南石油大学学习，在学校翼灵物联工作室学长的带领下，进入了java后端技术的学习中，突然发现我还挺喜欢这种编程的感觉。
+            I，在成都西南石油大学学习，在学校翼灵物联工作室学长的带领下，进入了java后端技术的学习中，突然发现我还挺喜欢这种编程的感觉。
             <br>
           </p>
        </div>
@@ -99,14 +101,16 @@
         <div class="ui center aligned container">
           <h3 class="m-margin-bt-small">心愿寄语</h3>
         </div>
-        <p class="aboutMe-info " style="color: #6b6b6b !important; ">愿我们都能通过自己的努力，在不久的将来过和心爱的人一起过上自己喜欢的生活，不被世俗的烦恼所烦扰。如果想要和我探讨技术上的问题或者做生活上的伙伴可以扫描屏幕左下方的二维添加我的微信，或者关注我的公众号： “生活要有诗意” 了解更多关于我的信息</p>
+        <p class="aboutMe-info " style="color: #6b6b6b !important; ">愿我们都能通过自己的努力，在不久的将来过和心爱的人一起过上自己喜欢的生活，不被世俗的烦恼所烦扰。如果想要和我探讨技术上的问题或者做生活上的伙伴可以扫描屏幕左下方的二维添加我的微信，或者关注我的公众号： “***” 了解更多关于我的信息</p>
        </div>
       
         
       </div>
+
+        <div class="ui divider wow slideInDown"></div>
   
       <!-- 分割图片 -->
-      <div class="ui basic segment">
+      <div class="ui basic segment wow slideInDown">
         <img src="../static/images/aboutMe-bg2.jpg" th:src="@{/images/aboutMe-bg2.jpg}" alt="" class="ui centered big rounded border image">
       </div>
   
@@ -151,117 +155,10 @@
   
       <h4 class="ui horizontal divider header">
         <i class="edit icon"></i>
-        欢迎评论
+        欢迎联系我
       </h4>
   
-        <!-- 评论区域 -->
-      <div id="leave-message" class="m-margin-bt-big">
-  
-          <!-- 评论区域列表 -->
-          <div class="ui teal segment" style="background-color: #f7f7f7; ">
-              <div class="ui threaded comments">
-                  <h3 class="ui dividing header">评论区</h3>
-                  <div class="comment">
-                    <a class="avatar">
-                      <img src="https://picsum.photos/id/1/100/100?image=1021">
-                    </a>
-                    <div class="content">
-                      <a class="author">Matt</a>
-                      <div class="metadata">
-                        <span class="date">Today at 5:42PM</span>
-                      </div>
-                      <div class="text">
-                        How artistic!
-                      </div>
-                      <div class="actions">
-                        <a class="reply">回复</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comment">
-                    <a class="avatar">
-                      <img src="https://picsum.photos/id/1/100/100?image=1021">
-                    </a>
-                    <div class="content">
-                      <a class="author">Elliot Fu</a>
-                      <div class="metadata">
-                        <span class="date">Yesterday at 12:30AM</span>
-                      </div>
-                      <div class="text">
-                        <p>This has been very useful for my research. Thanks as well!</p>
-                      </div>
-                      <div class="actions">
-                        <a class="reply">回复</a>
-                      </div>
-                    </div>
-                    <div class="comments">
-                      <div class="comment">
-                        <a class="avatar">
-                          <img src="https://picsum.photos/id/1/100/100?image=1021">
-                        </a>
-                        <div class="content">
-                          <a class="author">Jenny Hess</a>
-                          <div class="metadata">
-                            <span class="date">Just now</span>
-                          </div>
-                          <div class="text">
-                            Elliot you are always so right :)
-                          </div>
-                          <div class="actions">
-                            <a class="reply">回复</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comment">
-                    <a class="avatar">
-                      <img src="https://picsum.photos/id/1/100/100?image=1021">
-                    </a>
-                    <div class="content">
-                      <a class="author">Joe Henderson</a>
-                      <div class="metadata">
-                        <span class="date">5 days ago</span>
-                      </div>
-                      <div class="text">
-                        Dude, this is awesome. Thanks so much
-                      </div>
-                      <div class="actions">
-                        <a class="reply">回复</a>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-  
-          <!-- 评论输入区域 -->
-          <div class="ui form">
-              <div class="field">
-                  <textarea id="comment-text" name="content" placeholder="“登录后才可发表评论呀！”"  ></textarea>
-              </div>
-              <div class="fields">
-                  <div class="field m-mobile-wide m-margin-bottom-small">
-                      <div class="ui buttons">
-                          <button class="ui teal  button m-mobile-wide ">登录</button>
-                          <div class="or"></div>
-                          <button class="ui positive  button m-mobile-wide">注册</button>
-                      </div>
-                  </div>
-  
-                  <div class="field comment-tips m-mobile-wide m-margin-bottom-small" >
-                      
-                      <span>“已经有</span> 
-                      <span>1000</span>
-                      <span>评论了，快来发布你的想法吧！”</span>
-                  </div>
-  
-                  <div class=" field comment-submit m-mobile-wide m-margin-bottom-small">
-                      <button class="ui blue right floated  button m-mobile-wide"><i class="edit icon"></i>发布</button>
-                  </div>
-              </div>
-          </div>
-  
-      </div>
+
     </div>
 
     

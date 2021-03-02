@@ -1,4 +1,27 @@
+function isLogin() {
+    $.ajax({
+        type: 'get',
+        url: '/user/isLogin',
+        dataType: 'json',
+        success: function (data) {
+            if (data['status'] === 'success') {
+                if (data['data']['state'] == 1) {
 
+                    document.getElementById('loginMessage').innerHTML = "已登录";
+                } else {
+                    document.getElementById('loginMessage').innerHTML = "登录/注册";
+                }
+            } else {
+                alert('数据请求错误');
+            }
+        },
+        error: function () {
+            alert("错误");
+        }
+    });
+}
+
+isLogin();
 
 
 

@@ -23,15 +23,15 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/index", "/login", "/admin/login", "/static/**").permitAll()
+                .antMatchers("/index", "/login", "/admin/login","/user/login", "/static/**").permitAll()
 
                 .and()
-                .formLogin().loginPage("/user/signIn")
-                .defaultSuccessUrl("/index")
+                .formLogin().loginPage("/user/login")
+                .defaultSuccessUrl("/")
 
 
                 .and()
-                .logout().logoutSuccessUrl("/index")
+                .logout().logoutSuccessUrl("/")
 
                 .and()
                 .csrf().disable();

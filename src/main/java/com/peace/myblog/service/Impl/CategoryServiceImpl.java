@@ -129,7 +129,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<BlogCategoryInfo> blogCategoryInfo(String categoryName) {
-        System.out.println(categoryName);
         if (!categoryName.equals("null")) {
             Category categoryId = categoryMapper.getCategoryByName(categoryName);
             return blogService.getAllBlogCategory(categoryId.getId());
@@ -138,5 +137,15 @@ public class CategoryServiceImpl implements CategoryService {
             return blogService.getAllBlogCategoryMerge();
         }
 
+    }
+
+    @Override
+    public List<BlogCategoryInfo> blogCategoryInfoByTime(String createTime) {
+        if (!createTime.equals("null")) {
+            return blogService.getAllBlogCategoryByTime(createTime);
+
+        } else {
+            return blogService.getAllBlogCategoryMerge();
+        }
     }
 }

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详情页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/tocbot/4.12.0/tocbot.min.css">
+    <link href="https://cdn.bootcss.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../static/css/utils.css" th:href="@{/css/utils.css}">
+    <link rel="stylesheet" href="../static/css/blog.css" th:href="@{/css/blog.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/css/word-style.css" th:href="@{/css/word-style.css}">
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" src="../../static/lib/editorMd/css/editormd.css" type="text/css" th:href="@{/lib/editorMd/css/editormd.css}">
+
+</head>
+    <body class="bodyBlog">
+        <!-- 导航 -->
+        <nav th:replace="common_frg :: menu(0)" class="ui inverted attached segment m-padd-top-mini m-shadow-small">
+            <div class="ui container">
+                <div class="ui inverted secondary stackable menu">
+                    <h2 class="ui teal inverted header item">Myblog</h2>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i><span class="m-fam-size" style="color:#FF851B !important;">首页</span></a>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i><span class="m-fam-size" style="color:#54c8ff !important;">分类</span></a>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="tag icon"></i><span class="m-fam-size" style="color:#dc73ff !important;">标签</span></a>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="plane icon"></i><span class="m-fam-size" style="color:#a291fb !important;">旅行游记</span></a>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="calendar icon"></i><span class="m-fam-size" style="color:#ff8edf !important;">时光轴</span></a>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="spinner icon"></i><span class="m-fam-size" style="color:#74b34b !important;">博客记录</span></a>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="user plus icon"></i><span class="m-fam-size" style="color:#d3c75d !important;">友链</span></a>
+                    <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i><span class="m-fam-size" style="color:#ff695e !important;">关于我</span></a>
+                    <div class="m-item right item m-mobile-hide">
+                        <div class="ui icon transparent inverted input">
+                            <input class="prompt" type="text" placeholder="搜点什么">
+                            <i class="search link icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="ui menu toggle inverted  icon buttom m-right-top m-mobile-show " style="color: rgb(218, 218, 218);"  >
+                <i class="sidebar icon"></i>
+            </a>
+        </nav>
+
+        <!-- 中部内容 -->
+        <div id="waypoint" class="m-container-small m-padd-foot ">
+
+            <!-- 文章主体 -->
+            <div class="ui container m-margin-bt ">
+                <div class="ui basic segment ">
+
+                    <div class="data-blog">
+
+                        <!--文章头部-->
+                        <div class="article-top">
+                            <!--&lt;!&ndash; 文章标题 &ndash;&gt;-->
+                            <!--<div id="article-header">-->
+                                <!--<div class="ui center aligned container">-->
+                                    <!--<h1 class="m-text-middle"  >开篇第一篇博客</h1>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--&lt;!&ndash; 分类，时间，作者，文件夹 &ndash;&gt;-->
+                            <!--<div id="article-sort " class="m-margin-bt-large">-->
+                                <!--<div class="ui center aligned container">-->
+                                    <!--<div class="ui horizontal link list ">-->
+
+                                        <!--&lt;!&ndash; 创作类型 &ndash;&gt;-->
+                                        <!--<div class="item" >-->
+                                            <!--<div class="m-margin-bt-small ">-->
+                                                <!--<span class="ui  green label m-padd-mini" style="margin-bottom: 1px">原创</span>-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+
+                                        <!--&lt;!&ndash; 创作时间 &ndash;&gt;-->
+                                        <!--<div class="item" >-->
+                                            <!--<div class="create-time">-->
+                                                <!--<i class="  calendar alternate icon m-i-remark m-create-time-color m-margin-zero-right m-padding-right-zero"></i>-->
+                                                <!--<a href="#" class="m-font-size-mini m-a-remark m-time-color" >2020/7/28</a>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--&lt;!&ndash; 作者 &ndash;&gt;-->
+                                        <!--<div class="item ">-->
+                                            <!--<div class="author ">-->
+                                                <!--<i class=" user icon m-i-remark m-padding-right-zero m-margin-zero-right" ></i>-->
+                                                <!--<span >余睿哲</span>-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+
+                                        <!--&lt;!&ndash; 文件目录 &ndash;&gt;-->
+                                        <!--<div class="item">-->
+                                            <!--<div class="contents">-->
+                                                <!--<i class="folder icon m-i-remark m-padding-right-zero m-margin-zero-right "></i>-->
+                                                <!--<span>人生感悟</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--&lt;!&ndash; 浏览次数 &ndash;&gt;-->
+                                        <!--<div class="item">-->
+                                            <!--<div class="skim">-->
+                                                <!--<i class="eye icon m-i-remark m-padding-right-zero m-margin-zero-right"></i>-->
+                                                <!--<span>115</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+                            <!--&lt;!&ndash; 文章开篇图片 &ndash;&gt;-->
+                            <!--<div id="article-first-photo">-->
+                                <!--<img src="../static/images/bg1.gif" th:src="@{/images/bg1.gif}" alt="" class="ui centered fluid rounded  image">-->
+                            <!--</div>-->
+                        </div>
+
+
+                        <!-- 文章内容 -->
+                        <div id="article-content" class="  m-padd-rf-small-reponsive  m-padd-foot  js-toc-content">
+                            <div>
+                                <div id="test-editormd-view" class=" editormd-preview-theme-dark markdown-body editormd-html-preview">
+                                    <textarea style="display:none;" name="test-editormd-markdown-doc" id="mdText"></textarea>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!--文章底部-->
+                        <div class="article-bottom">
+
+                            <!--&lt;!&ndash; ending 图标 &ndash;&gt;-->
+                            <!--<div id="article-ending" class="m-margin-bt-large">-->
+                                <!--<div class="ui center aligned container">-->
+                                    <!--<img src="../static/images/ending.png" th:src="@{/images/ending.png}" alt="" class="ui small centered image">-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+
+
+                            <!--<div class="ui divider"></div>-->
+
+                            <!--&lt;!&ndash; 赞赏 &ndash;&gt;-->
+                            <!--<div id="article-admired" class="m-margin-bt">-->
+
+                                <!--&lt;!&ndash; 文字说明 &ndash;&gt;-->
+                                <!--<div class="ui center aligned container m-padding-top" id="admired-word">-->
+                                    <!--<span class="m-inlie-block">“觉得文章很棒，就鼓励一下作者吧！”</span>-->
+                                <!--</div>-->
+
+                                <!--&lt;!&ndash; 赞赏图标 &ndash;&gt;-->
+                                <!--<div class="ui center aligned basic segment m-padd-foot-mini" id="admire-icon">-->
+                                    <!--<button id="payButton" class="ui large orange basic circular button">-->
+                                        <!--<i class="thumbs up icon"></i>赞赏-->
+                                    <!--</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--&lt;!&ndash; 打赏二维码 &ndash;&gt;-->
+                            <!--<div class="ui payQR flowing popup  transition hidden">-->
+                                <!--<div class="ui orange basic label" id="admired-method">-->
+                                    <!--<div class="ui images" style="font-size: inherit !important;">-->
+                                        <!--<div class="image">-->
+                                            <!--<img src="../static/images/weChat.png" th:src="@{/images/weChat.png}" alt="" class="ui rounded bordered image">-->
+                                            <!--<p>支付宝打赏</p>-->
+                                        <!--</div>-->
+                                        <!--<div class="image">-->
+                                            <!--<img src="../static/images/weChat.png" th:src="@{/images/weChat.png}" alt="" class="ui rounded bordered image">-->
+                                            <!--<p>微信打赏</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+
+
+                            <!--&lt;!&ndash; 公众号同步 &ndash;&gt;-->
+                            <!--<div id="weChat-public" class="m-margin-bt-big" >-->
+                                <!--<div class="m-container-mini ">-->
+                                    <!--<div class="ui center secondary segment">-->
+
+                                        <!--<img src="../static/images/weChat-public.jpg" th:src="@{/images/weChat-public.jpg}" alt="" class="ui small centered rounded image ">-->
+
+                                        <!--<div class="ui center aligned container">-->
+                                            <!--<h3 >关注我的公众号：生活要有诗意，可同步查阅文章</h3>-->
+                                        <!--</div>-->
+
+
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+
+                            <!--&lt;!&ndash; 博客信息介绍 &ndash;&gt;-->
+                            <!--<div id="article-info" class="m-margin-bt-tiny">-->
+
+                                <!--<ul class="line m-margin-top-zero">-->
+                                    <!--<li>-->
+                                        <!--<span>文章作者：</span>-->
+                                        <!--<span> 余睿哲</span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span>原文链接：</span>-->
+                                        <!--<span> 余睿哲</span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span>版权声明：</span>-->
+                                        <!--<span> 余睿哲</span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+
+
+                            <!--</div>-->
+
+                            <!--&lt;!&ndash; 文章标签  &ndash;&gt;-->
+                            <!--<div id="article-tag">-->
+                                <!--<a href="#" class="ui teal tag  label">生活感悟</a>-->
+                                <!--<a href="#" class="ui teal tag label">日常随笔</a>-->
+                            <!--</div>-->
+
+                            <!--<div class="ui divider"></div>-->
+
+                            <!--&lt;!&ndash; 底部换页区域 &ndash;&gt;-->
+                            <!--<div id="next-pre-page">-->
+
+
+                                <!--<div class=" m-margin-rf">-->
+
+                                    <!--<div class="ui grid">-->
+
+                                        <!--&lt;!&ndash; 上一页 &ndash;&gt;-->
+                                        <!--<div class="left floated left aligned six wide column">-->
+                                            <!--<div class="left floated column pre" style="display: inline-block !important;">-->
+                                                <!--<a href="#">上一篇文章名</a>-->
+                                                <!--<i class="hand point left outline icon"></i>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="right floated right aligned six wide column">-->
+                                            <!--<div class="right floated column next " style="display: inline-block;">-->
+                                                <!--<i class="hand point right outline icon"></i>-->
+                                                <!--<a href="#">下一篇文章名</a>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                    <!--</div>-->
+
+
+
+                                <!--</div>-->
+
+
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    </div>
+
+                    <!-- 评论区域 -->
+                    <div  id="leave-message" class="m-margin-bt-big ui container">
+
+
+                        <div class="ui container comment display-none">
+                            <div class="comment-edit">
+                                <textarea placeholder="朋友留下点什么吧" id="comment-content"></textarea>
+                            </div>
+                            <div class="comment-btn">
+                                <button class="am-btn ui inverted blue  button" id="comment-btn">一键发送</button>
+                            </div>
+
+                            <div class="am-divider"></div>
+                            <h4 class="ui horizontal divider header">
+                                <i class="edit outline icon"></i>
+                                评论区
+                            </h4>
+                            <div class="comment-main">
+                                <div class="comment-main-top">
+                                </div>
+                                <div class="comment-main-list">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+
+
+
+
+        </div>
+
+        <!-- 会到顶部工具条 -->
+        <div id="toolbar" class="m-fixed m-right-bottom m-padded-tiny animated fadeIn" style="display: none;">
+            <div class="ui vertical icon mini buttons ">
+                <button type="button" class="ui small toc blue button">目录</button>
+                <a href="#leave-message" class="ui small yellow button">留言</a>
+                <button class="ui wechat icon green small button"><i class="weixin icon"></i></button>
+                <div id="toTop" class="ui icon small button"><i class="arrow up icon"></i></div>
+            </div>
+        </div>
+
+        <!-- 目录框 -->
+        <div class="ui toc-container flowing popup  transition hidden toc-list " style="width: 250px !important;">
+            <ol class="js-toc">
+
+            </ol>
+        </div>
+
+        <!-- 扫码阅读框 -->
+        <div id="qrcode" class="ui wechat-qr flowing popup transition hidden " style="width: 150px !important;">
+
+        </div>
+
+
+
+
+        <!-- 底部 -->
+        <footer th:replace="common_frg :: footer_user" class="ui inverted vertical segment m-padd-foot-massive ">
+            <div class="ui center aligned container">
+                <div class="ui inverted divided stackable grid">
+                    <div class="three wide column">
+                        <div class="ui inverted link list">
+                            <div class="item" >
+                                <img src="../static/images/weChat.png" alt="" style="width: 110px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui inverted header m-text-trspant">最新博客</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">第一篇</a>
+                            <a href="#" class="item">第一篇</a>
+                            <a href="#" class="item">第一篇</a>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui inverted header m-text-trspant">联系我</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">第一篇</a>
+                            <a href="#" class="item">第一篇</a>
+                            <a href="#" class="item">第一篇</a>
+                        </div>
+                    </div>
+                    <div class="seven wide column">
+                        <h4 class="ui inverted header m-text-trspant">说点什么</h4>
+                        <p class="m-text-thin m-text-spaced m-text-trspant-mini" >
+                            这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客这是我的个人博客
+                        </p>
+                    </div>
+                </div>
+                <div class="ui inverted section divider"></div>
+                <p class="m-text-thin m-text-spaced m-text-trspant-mini">copyright@123456 yrz</p>
+            </div>
+        </footer>
+    </body>
+
+<!--/*/<th:block th:replace="common_frg :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="../static/js/common_blog.js"></script>
+<script src="../static/js/common_index.js"></script>
+<script src="../static/lib/prism/prism.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/tocbot/4.12.0/tocbot.min.js"></script>
+<script src="../static/lib/qrcode/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+<!--/*/</th:block>/*/-->
+
+<!--th:src="@{/lib/editorMd/lib/sequence-diagram.min.js}"-->
+<!--http://localhost:8080/lib/editorMd/lib/flowchart.min.js-->
+<script src="https://cdn.bootcss.com/prettify/r298/prettify.min.js"></script>
+<script src="https://cdn.bootcss.com/raphael/2.2.8/raphael.min.js"></script>
+<script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore-min.js"></script>
+<script src="https://cdn.bootcss.com/flowchart/1.11.2/flowchart.min.js"></script>
+<script src="https://cdn.bootcss.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+
+
+
+<!--<script th:src="@{/lib/editorMd/lib/prettify.min.js}"></script>-->
+<!--<script th:src="@{/lib/editorMd/lib/raphael.min.js}"></script>-->
+<!--<script th:src="@{/lib/editorMd/lib/underscore.min.js}"></script>-->
+<!--<script src="/lib/editorMd/lib/sequence-diagram.min.js" ></script>-->
+<!--<script th:src="@{/lib/editorMd/lib/flowchart.min.js}"></script>-->
+<script th:src="@{/lib/editorMd/lib/marked.min.js}"></script>
+<scritpt th:src="@{/lib/editorMd/lib/jquery.flowchart.min}" ></scritpt>
+
+<script th:src="@{/lib/editorMd/editormd.js}"></script>
+<script th:src="@{/js/data_article.js}"></script>
+
+
+<script>
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+
+</script>
+
+</html>

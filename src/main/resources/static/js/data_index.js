@@ -10,6 +10,7 @@ fillRecommendBlog();
 
 fillWebsiteInfo();
 
+isLogin();
 
 // 构建简略文章
 function makeArticleInfo(data) {
@@ -56,7 +57,7 @@ function makeArticleInfo(data) {
             '                                            <div class="item" >\n' +
             '                                                <div class="create-time">\n' +
             '                                                    <i class="  calendar alternate icon m-i-remark m-create-time-color m-margin-zero-right m-padding-right-zero"></i>\n' +
-            '                                                    <a href="/user/time/'+formatDate(articleInfo['createTime'],"YY-MM-DD")+'" class="m-font-size-mini m-a-remark m-time-color" >'+formatDate(articleInfo['createTime'],"YY-MM-DD")+'</a>\n' +
+            '                                                    <a href="/user/timeline?creteTime='+articleInfo['publishDate']+'" class="m-font-size-mini m-a-remark m-time-color" >'+formatDate(articleInfo['createTime'],"YY-MM-DD")+'</a>\n' +
             '                                                </div>\n' +
             '                                            </div>\n' +
             '\n' +
@@ -73,7 +74,7 @@ function makeArticleInfo(data) {
             '                                            <div class="item">\n' +
             '                                                <div class="contents">\n' +
             '                                                    <i class="folder icon m-i-remark m-padding-right-zero m-margin-zero-right "></i>\n' +
-            '                                                    <a href="/user/categoryName/'+articleInfo['category']+'" class="m-font-size-mini m-a-remark m-time-color">'+articleInfo['category']+'</a>\n' +
+            '                                                    <a href="/user/category?categoryName='+articleInfo['category']+'" class="m-font-size-mini m-a-remark m-time-color">'+articleInfo['category']+'</a>\n' +
             '                                                </div>\n' +
             '                                            </div>\n' +
             '\n' +
@@ -123,7 +124,7 @@ function makeArticleInfo(data) {
             '\n' +
             '\n' +
             '                            <!-- 底部分类标签 -->\n' +
-            '                            <div class="ui raised segment article-footer-segment">\n' +
+            '                            <div class="ui raised green segment article-footer-segment">\n' +
             '                                <div class="m-tag-list">\n' +
             '                                        '+bottomTagLine+' '+
             '                                </div>\n' +
@@ -273,7 +274,7 @@ function makeWebsiteInfo(data) {
         '                            </div>\n' +
         '                        </div>\n' +
         '                        <!-- 各个条目 -->\n' +
-        '                        <div style="background:#fafff8; margin-left: 10px; padding-top: 10px; padding-bottom: 10px" >\n' +
+        '                        <div style="background:#fafff8; padding-left: 10px; padding-top: 10px; padding-bottom: 10px" >\n' +
         '                            <div class="articles m-padd-mini">\n' +
         '                                <i class="file alternate icon"></i>\n' +
         '                                <span>文章总数：</span>\n' +
@@ -391,3 +392,28 @@ setInterval(function () {
     siteRunningTime(theTime);
     theTime++;
 },1000);
+
+
+
+function isLogin() {
+    $.ajax({
+        type: 'get',
+        url: '/user/isLogin',
+        dataType: 'json',
+        success: function (data) {
+            if (data['status'] === 'success') {
+                if (data['data']['state'] == 1) {
+
+                    document.getElementById('loginMessage').innerHTML = "已登录";
+                } else {
+                    document.getElementById('loginMessage').innerHTML = "登录/注册";
+                }
+            } else {
+                alert('数据请求错误');
+            }
+        },
+        error: function () {
+            alert("错误");
+        }
+    });
+}

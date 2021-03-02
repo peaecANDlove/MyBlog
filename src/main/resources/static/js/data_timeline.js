@@ -1,10 +1,38 @@
 
+function isLogin() {
+    $.ajax({
+        type: 'get',
+        url: '/user/isLogin',
+        dataType: 'json',
+        success: function (data) {
+            if (data['status'] === 'success') {
+                if (data['data']['state'] == 1) {
 
+                    document.getElementById('loginMessage').innerHTML = "已登录";
+                } else {
+                    document.getElementById('loginMessage').innerHTML = "登录/注册";
+                }
+            } else {
+                alert('数据请求错误');
+            }
+        },
+        error: function () {
+            alert("错误");
+        }
+    });
+}
+
+isLogin();
+
+var checkUrl = location.href;
+var parameters = checkUrl.split("=");
+var creatTime = parameters[1];
+if (creatTime === undefined){
+    creatTime = null;
+}
 
 
 fillCategoryBlogMerge(1);
-
-
 
 fillTimeList();
 //构建分类博客信息合并项
@@ -79,17 +107,30 @@ function makeCategoryBlogMerge(data) {
             '                      </div>';
         if (index === 0) {
 
-            var year = formatDate(categoryInfoData['createTime'],"YY");
-            var dueTime = ' <div class="time-block m-padd-foot">\n' +
-                '                      <span class="circle wrapper-span animation-up"></span>\n' +
-                '                      <div class="time m-inline-block animation-up">\n' +
-                '                        <span class="sp-style ">'+year+'年</span>\n' +
-                '                      </div>\n' +
-                '                  </div>';
-            categoryInfo.append(dueTime);
+            if (creatTime === null) {
+                var year = formatDate(categoryInfoData['createTime'],"YY");
+                var dueTime = ' <div class="time-block m-padd-foot">\n' +
+                    '                      <span class="circle wrapper-span animation-up"></span>\n' +
+                    '                      <div class="time m-inline-block animation-up">\n' +
+                    '                        <span class="sp-style ">'+year+'年</span>\n' +
+                    '                      </div>\n' +
+                    '                  </div>';
+                categoryInfo.append(dueTime);
+            } else {
+                var dueTime = ' <div class="time-block m-padd-foot">\n' +
+                    '                      <span class="circle wrapper-span animation-up"></span>\n' +
+                    '                      <div class="time m-inline-block animation-up">\n' +
+                    '                        <span class="sp-style ">'+decode(creatTime)+'</span>\n' +
+                    '                      </div>\n' +
+                    '                  </div>';
+                categoryInfo.append(dueTime);
+            }
+
         }
         
         if (index >= 1) {
+
+
 
             var thisYear = formatDate(categoryInfoData['createTime'],"YY");
             var prevYear = formatDate(categoryInfoDatas[index-1]['createTime'],'YY');
@@ -113,13 +154,16 @@ function makeCategoryBlogMerge(data) {
 //填充分类博客信息合并项
 function fillCategoryBlogMerge(currentPage) {
 
+
+
     $.ajax({
         type: 'post',
         url: '/user/timelineCards',
         dataType: 'json',
         data: {
             size:"3",
-            pageNum:currentPage
+            pageNum:currentPage,
+            createTime:decode(creatTime)
         },
         success: function (data) {
             if (data['status'] === 'success') {
@@ -171,7 +215,7 @@ function makeTimeList(data) {
             '                <div class="content">\n' +
             '                  <div class="ui left aligned container">\n' +
             //                   todo
-            '                    <a href="#" class="m-font" >'+time['archiveName']+' </a> \n' +
+            '                    <a href="/user/timeline?createTime='+time['archiveName']+'" class="m-font" >'+time['archiveName']+' </a> \n' +
             '                    <span class="m-span-color">('+time['numberOfBlog']+')</span>\n' +
             '                  </div>\n' +
             '                </div>\n' +
@@ -225,4 +269,27 @@ function formatDate(time,format){
         .replace(/ss/g,preArr[sec]||sec);
 
     return newTime;
+}
+
+function decode(inputStr){
+    var resultArr =[];
+    if (inputStr == null) return;
+    for(var i=0;i<inputStr.length;i++){
+        var chr = inputStr.charAt(i);
+        if(chr == "+"){
+            resultArr[resultArr.length]=" ";
+        }else if(chr=="%"){
+            var asc = inputStr.substring(i+1,i+3);
+            if(parseInt("0x"+asc)>0x7f){
+                resultArr[resultArr.length]= decodeURI(inputStr.substring(i,i+9));
+                i+=8;
+            }else{
+                resultArr[resultArr.length]=String.fromCharCode(parseInt("0x"+asc));
+                i+=2;
+            }
+        }else{
+            resultArr[resultArr.length]= chr;
+        }
+    }
+    return resultArr.join("");
 }

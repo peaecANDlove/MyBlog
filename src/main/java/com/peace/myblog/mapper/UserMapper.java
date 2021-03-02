@@ -66,6 +66,15 @@ public interface UserMapper {
     @Select("select nick_name, id from t_user where id = #{userId}")
     User getUsernameAndId(Long userId);
 
+    @Select("select exists (select 1 from t_user where account_number = #{telephone})")
+    int isUserExist(String telephone);
 
+    @Select("select avatar from t_user where account_number = #{name}")
+    String getAvatar(String name);
 
+    @Update("update t_user set password = #{password} where account_number = #{accountNumber}")
+    void updatePassword(User user);
+
+    @Select("select * from t_user where id = #{replayUserId}")
+    User getUserById(Long id);
 }

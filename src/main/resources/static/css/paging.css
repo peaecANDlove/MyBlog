@@ -4,7 +4,7 @@
 
 #pagination li a:hover{
     cursor: pointer;
-    color: white;
+    color: #00d6fd;
 }
 
 #pagination li a{

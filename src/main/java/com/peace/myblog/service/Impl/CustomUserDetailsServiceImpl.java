@@ -35,18 +35,18 @@ public class CustomUserDetailsServiceImpl  implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String accountNumber) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 
 
-        User user = userService.getUserByAccountNumber(accountNumber);
+        User user = userService.getUserByAccountNumber(username);
 
         if(user == null) {
             throw new RuntimeException("用户不存在！");
         }
 
         Collection<GrantedAuthority> authorities = getAuthorities(user);
-        UserDetails userDetails = new org.springframework.security.core.userdetails.User(accountNumber, user.getPassword(), authorities);
+        UserDetails userDetails = new org.springframework.security.core.userdetails.User(username, user.getPassword(), authorities);
 
         return userDetails;
     }

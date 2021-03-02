@@ -29,7 +29,7 @@ public interface BlogMapper {
             "tag_names = ifnull(#{tagNames}, tag_names), mark_flag = ifnull(#{markFlag}, mark_flag), " +
             "views = ifnull(#{views}, views), appreciation = ifnull(#{appreciation}, appreciation), " +
             "share_statement = ifnull(#{shareStatement}, share_statement), comment_able = ifnull(#{commentAble}, comment_able), " +
-            "recommend = #{recommend}, description = #{description}, published = #{published}, create_time = #{createTime}, update_time = #{updateTime} " +
+            "recommend = #{recommend}, description = #{description}, published = #{published}, create_time = ifnull(#{createTime}, create_time), update_time = #{updateTime} " +
             "where id = #{id}")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void updateBlog(Blog blog);
@@ -45,7 +45,7 @@ public interface BlogMapper {
             "recommend = ifnull(#{recommend}, recommend)" )
     List<Blog> getAllBlog(BlogSeach blog);
 
-    @Select("select id, title, author_id, description, category_id, tag_names, mark_flag, views,  create_time, update_time " +
+    @Select("select id, title, author_id, description, publish_date, category_id, tag_names, mark_flag, views,  create_time, update_time " +
             "from t_blog ")
     List<Blog> getAllBlogSimple();
 
@@ -81,4 +81,7 @@ public interface BlogMapper {
 
     @Select("select title, create_time, views, category_id, id, tag_names from t_blog where category_id = ifnull(#{categoryId}, category_id)")
     List<BlogCategoryInfo> getBlogCategory(Long categoryId);
+
+    @Select("select title, create_time, views, category_id, id, tag_names from t_blog where publish_date = ifnull(#{publishDate}, publish_date)")
+    List<BlogCategoryInfo> getBlogCategoryByTime(String publishDate);
 }

@@ -42,5 +42,13 @@ public interface UserService {
     User getUsernameAndId(Long userId);
 
 
+    int isUserExist(long telephone);
 
+    int getTelephoneCode(String telephone);
+
+    int register(User user, String telephoneCode);
+
+    String getAvatar(String name);
+
+    int resetPassword(User user, String telephone);
 }

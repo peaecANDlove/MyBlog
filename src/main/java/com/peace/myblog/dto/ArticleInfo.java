@@ -16,7 +16,7 @@ public class ArticleInfo {
     private String title;
     private String authorName;
     private String description;
-
+    private String publishDate;
     //  分类id
     private String category;
 

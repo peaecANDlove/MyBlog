@@ -27,6 +27,8 @@
     color: #228fbd !important;
 }
 
+
+
 #article-header h1{
    color: #00a6ac !important;
 }
@@ -36,7 +38,7 @@
     font-family: 'headWord' !important;
 }
 
-#acticle-content p{
+#article-content p{
     font-family: 'contentWord' !important;
     line-height: 1.9 !important;
     font-size: 17px;
@@ -94,25 +96,25 @@
     color: #90d7ec !important;
 }
 
-.comment-tips{
-    margin-left: 150px !important;
-    margin-right: 150px !important;
-    
-    white-space:nowrap !important;
-}
+/*.comment-tips{*/
+    /*margin-left: 150px !important;*/
+    /*margin-right: 150px !important;*/
+    /**/
+    /*white-space:nowrap !important;*/
+/*}*/
 
-.comment-tips span{
-    font-family: 'dotted' !important;
-    font-size: 14px !important;
-}
+/*.comment-tips span{*/
+    /*font-family: 'dotted' !important;*/
+    /*font-size: 14px !important;*/
+/*}*/
 
-.comment-submit{
-    white-space: nowrap !important;
-}
+/*.comment-submit{*/
+    /*white-space: nowrap !important;*/
+/*}*/
 
-#comment-text{
-    background-color: #f3f4f5 !important;
-}
+/*#comment-text{*/
+    /*background-color: #f3f4f5 !important;*/
+/*}*/
 
 .m-margin-bottom-small{
     margin-bottom: 0.5em !important;

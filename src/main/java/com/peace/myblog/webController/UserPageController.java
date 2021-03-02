@@ -38,6 +38,12 @@ public class UserPageController {
         return "tags";
     }
 
+    @GetMapping("/login")
+    public String login() {
+
+        return "login";
+    }
+
     @GetMapping("/timeline")
     public String timeLine() {
 
@@ -85,7 +91,7 @@ public class UserPageController {
 
     @GetMapping("/getBlogDetail/{id}")
     public String readBlog() {
-        return "blog";
+        return "article";
     }
 
 

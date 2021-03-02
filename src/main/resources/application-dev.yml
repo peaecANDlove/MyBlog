@@ -20,5 +20,9 @@ logging:
 
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 3600
+
 
 

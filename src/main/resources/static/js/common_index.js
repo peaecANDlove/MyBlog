@@ -4,6 +4,8 @@ $('.menu.toggle').click(function() {
 });
 
 
+
+
 //表单验证
 $('.ui.login.form').form({
     on: 'blur',

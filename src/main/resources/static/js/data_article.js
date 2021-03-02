@@ -1,3 +1,9 @@
+var articleId;
+var user_id = 0;
+var pid = 0;
+var floor = 0;
+var comment_num = 0;
+
 function isLogin() {
     $.ajax({
         type: 'get',
@@ -23,56 +29,243 @@ function isLogin() {
 
 isLogin();
 
-var articleId = 9999;
-var user_id = 0;
-var pid = 0;
-var floor = 0;
-var comment_num = 0;
+fillBlogDetail();
 
 
-fillFriendLink();
 
-//无友链情况
-function noFriendLink() {
 
-    var friendLink = $('.data-friendLink');
-    friendLink.empty();
+//需要完善的地方
+//把博客页面重新编辑一下使得markdown正确展示
+function makeBlogDetail(data){
 
-    var state = '<h2 class="friendLink-h3">暂无友链添加，欢迎你的 Link</h2>';
-    friendLink.append(state);
 
-}
 
-//构建友链卡片
-function makeFriendLind(data) {
 
-    var friendLink = $('.data-friendLink');
-    friendLink.empty();
+    var articleTop = $('.article-top');
+    articleTop.empty();
 
-    var friendLinkData = data['data'];
+    var articleBottom = $('.article-bottom');
+    articleBottom .html('');
+    var blogDetailData = data['data'];
 
-    $.each(friendLinkData, function (index, friend) {
 
-        //href todo
-        var friendLinkBody = '<a class="ui teal card " href=" '+friend['blogAddress']+' ">\n' +
-            '          <div class="content">\n' +
-            '            <div class="header">'+friend['blogName']+'</div>\n' +
-            '            <div class="meta">\n' +
-            '              <span class="category">'+friend['blogType']+'</span>\n' +
-            '            </div>\n' +
-            '            <div class="description">\n' +
-            '              <p class="frindeLink-desc">'+friend['blogInfo']+'</p>\n' +
-            '            </div>\n' +
-            '          </div>\n' +
-            '          <div class="extra content">\n' +
-            '            <div class="right floated author">\n' +
-            '              <img class="ui avatar image" src=" '+friend['avatarAddress']+' "> Matt\n' +
-            '            </div>\n' +
-            '          </div>\n' +
-            '        </a>';
 
-        friendLink.append(friendLinkBody);
+    var tagLine ='';
+    $.each(blogDetailData['tags'], function (index, tag) {
+        tagLine+='<a href="#" class="ui teal tag  label">'+tag['tagName']+'</a>';
     });
+
+
+
+    //头部
+    var articleHeadBody = '<div class="article-top">\n' +
+        '                            <!-- 文章标题 -->\n' +
+        '                            <div id="article-header">\n' +
+        '                                <div class="ui center aligned container">\n' +
+        '                                    <h1 class="m-text-middle"  >'+blogDetailData['title']+'</h1>\n' +
+        '                                </div>\n' +
+        '                            </div>\n' +
+        '\n' +
+        '                            <!-- 分类，时间，作者，文件夹 -->\n' +
+        '                            <div id="article-sort " class="m-margin-bt-large">\n' +
+        '                                <div class="ui center aligned container">\n' +
+        '                                    <div class="ui horizontal link list ">\n' +
+        '\n' +
+        '                                        <!-- 创作类型 -->\n' +
+        '                                        <div class="item" >\n' +
+        '                                            <div class="m-margin-bt-small ">\n' +
+        '                                                <span class="ui  green label m-padd-mini" style="margin-bottom: 1px">'+blogDetailData['markFlag']+'</span>\n' +
+        '                                            </div>\n' +
+        '\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '                                        <!-- 创作时间 -->\n' +
+        '                                        <div class="item" >\n' +
+        '                                            <div class="create-time">\n' +
+        '                                                <i class="  calendar alternate icon m-i-remark m-create-time-color m-margin-zero-right m-padding-right-zero"></i>\n' +
+        '                                                <a href="#" class="m-font-size-mini m-a-remark m-time-color" >'+formatDate(blogDetailData['createTime'], 'YY/MM/DD')+'</a>\n' +
+        '                                            </div>\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '                                        <!-- 作者 -->\n' +
+        '                                        <div class="item ">\n' +
+        '                                            <div class="author ">\n' +
+        '                                                <i class=" user icon m-i-remark m-padding-right-zero m-margin-zero-right" ></i>\n' +
+        '                                                <span >'+blogDetailData['authorName']+'</span>\n' +
+        '                                            </div>\n' +
+        '\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '                                        <!-- 文件目录 -->\n' +
+        '                                        <div class="item">\n' +
+        '                                            <div class="contents">\n' +
+        '                                                <i class="folder icon m-i-remark m-padding-right-zero m-margin-zero-right "></i>\n' +
+        '                                                <span>'+blogDetailData['category']['name']+'</span>\n' +
+        '                                            </div>\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '                                        <!-- 浏览次数 -->\n' +
+        '                                        <div class="item">\n' +
+        '                                            <div class="skim">\n' +
+        '                                                <i class="eye icon m-i-remark m-padding-right-zero m-margin-zero-right"></i>\n' +
+        '                                                <span>'+blogDetailData['views']+'</span>\n' +
+        '                                            </div>\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '                                    </div>\n' +
+        '                                </div>\n' +
+        '\n' +
+        '                            </div>\n' +
+        '\n' +
+        '                            <!-- 文章开篇图片 -->\n' +
+        '                            <div id="article-first-photo">\n' +
+        '                                <img src="'+blogDetailData['firstPicture']+'"  alt=""  class = "ui centered  rounded  image" style="height: 500px; width: 700px;">\n' +
+        '                            </div>\n' +
+        '                        </div>';
+    articleTop.append(articleHeadBody);
+
+
+    $("#mdText").text(blogDetailData['content']);
+    var  testEditormdView;
+    testEditormdView = editormd.markdownToHTML("test-editormd-view", {
+        htmlDecode: "true", // you can filter tags decode
+        emoji: true,
+        taskList: true,
+        previewTheme : "dark",
+        tex: true,
+        flowChart: true,
+        sequenceDiagram: true
+    });
+
+    // $(".prettyprint linenums prettyprinted").addClass("editormd-preview-theme-dark");
+
+    var articeBottomBody = '<!--文章底部-->\n' +
+        '                        <div class="article-bottom">\n' +
+        '\n' +
+        '                            <!-- ending 图标 -->\n' +
+        '                            <div id="article-ending" class="m-margin-bt-large">\n' +
+        '                                <div class="ui center aligned container">\n' +
+        '                                    <img src="/images/ending.png"  alt="" class="ui small centered image">\n' +
+        '                                </div>\n' +
+        '                            </div>\n' +
+        '\n' +
+        '\n' +
+        '\n' +
+        '                            <div class="ui divider"></div>\n' +
+        '\n' +
+        '                            <!-- 赞赏 -->\n' +
+        '                            <div id="article-admired" class="m-margin-bt">\n' +
+        '\n' +
+        '                                <!-- 文字说明 -->\n' +
+        '                                <div class="ui center aligned container m-padding-top" id="admired-word">\n' +
+        '                                    <span class="m-inlie-block">“觉得文章很棒，就鼓励一下作者吧！”</span>\n' +
+        '                                </div>\n' +
+        '\n' +
+        '                                <!-- 赞赏图标 -->\n' +
+        '                                <div class="ui center aligned basic segment m-padd-foot-mini" id="admire-icon">\n' +
+        '                                    <button id="payButton" class="ui large orange basic circular button">\n' +
+        '                                        <i class="thumbs up icon"></i>赞赏\n' +
+        '                                    </button>\n' +
+        '                                </div>\n' +
+        '                            </div>\n' +
+        '\n' +
+        '                            <!-- 打赏二维码 -->\n' +
+        '                            <div class="ui payQR flowing popup  transition hidden">\n' +
+        '                                <div class="ui orange basic label" id="admired-method">\n' +
+        '                                    <div class="ui images" style="font-size: inherit !important;">\n' +
+        '                                        <div class="image">\n' +
+        '                                            <img src="/images/weChat.png"  alt="" class="ui rounded bordered image">\n' +
+        '                                            <p>支付宝打赏</p>\n' +
+        '                                        </div>\n' +
+        '                                        <div class="image">\n' +
+        '                                            <img src="/images/weChat.png"  alt="" class="ui rounded bordered image">\n' +
+        '                                            <p>微信打赏</p>\n' +
+        '                                        </div>\n' +
+        '                                    </div>\n' +
+        '                                </div>\n' +
+        '                            </div>\n' +
+        '\n' +
+        '\n' +
+        '\n' +
+        '                            <!-- 公众号同步 -->\n' +
+        '                            <div id="weChat-public" class="m-margin-bt-big" >\n' +
+        '                                <div class="m-container-mini ">\n' +
+        '                                    <div class="ui center secondary segment">\n' +
+        '\n' +
+        '                                        <img src="/images/weChat-public.jpg" alt="" class="ui small centered rounded image ">\n' +
+        '\n' +
+        '                                        <div class="ui center aligned container">\n' +
+        '                                            <h3 >关注我的公众号：生活要有诗意，可同步查阅文章</h3>\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '\n' +
+        '                                    </div>\n' +
+        '                                </div>\n' +
+        '\n' +
+        '                            </div>\n' +
+        '\n' +
+        '\n' +
+        '                            <!-- 博客信息介绍 -->\n' +
+        '                            <div id="article-info" class="m-margin-bt-tiny">\n' +
+        '\n' +
+        '                                <ul class="line m-margin-top-zero">\n' +
+        '                                    <li>\n' +
+        '                                        <span>文章作者：</span>\n' +
+        '                                        <span> '+blogDetailData['authorName']+'</span>\n' +
+        '                                    </li>\n' +
+        '                                    <li>\n' +
+        '                                        <span>原文链接：</span>\n' +
+        '                                        <span> 余睿哲</span>\n' +
+        '                                    </li>\n' +
+        '                                    <li>\n' +
+        '                                        <span>版权声明：</span>\n' +
+        '                                        <span> 余睿哲</span>\n' +
+        '                                    </li>\n' +
+        '                                </ul>\n' +
+        '\n' +
+        '\n' +
+        '                            </div>\n' +
+        '\n' +
+        '                            <!-- 文章标签  -->\n' +
+        '                            <div id="article-tag">\n' +
+        '                                '+tagLine+
+        '                            </div>\n' +
+        '\n' +
+        '                            <div class="ui divider"></div>\n' +
+        '\n' +
+        '                            <!-- 底部换页区域 -->\n' +
+        '                            <div id="next-pre-page">\n' +
+        '\n' +
+        '\n' +
+        '                                <div class=" m-margin-rf">\n' +
+        '\n' +
+        '                                    <div class="ui grid">\n' +
+        '\n' +
+        '                                        <!-- 上一页 -->\n' +
+        '                                        <div class="left floated left aligned six wide column">\n' +
+        '                                            <div class="left floated column pre" style="display: inline-block !important;">\n' +
+        '                                                <a href="">上一篇文章名</a>\n' +
+        '                                                <i class="hand point left outline icon"></i>\n' +
+        '                                            </div>\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '                                        <div class="right floated right aligned six wide column">\n' +
+        '                                            <div class="right floated column next " style="display: inline-block;">\n' +
+        '                                                <i class="hand point right outline icon"></i>\n' +
+        '                                                <a href="">下一篇文章名</a>\n' +
+        '                                            </div>\n' +
+        '                                        </div>\n' +
+        '\n' +
+        '                                    </div>\n' +
+        '\n' +
+        '\n' +
+        '\n' +
+        '                                </div>\n' +
+        '\n' +
+        '\n' +
+        '                            </div>\n' +
+        '                        </div>';
+    articleBottom.append(articeBottomBody);
 
     $.ajax({
         type:"get",
@@ -86,7 +279,7 @@ function makeFriendLind(data) {
 
 
             if(data['result']==undefined){
-                var item = '<div><p class="no-message">无人留下足迹，可怜</p></div>';
+                var item = '<div><p class="no-message">无人留下足迹，可怜</p></div>'
                 $(".comment-main-top").append(item);
             }
 
@@ -188,34 +381,43 @@ function makeFriendLind(data) {
 
     });
 
-}
+    $('#payButton').popup({
+        popup : $('.payQR'),
+        on : 'click',
+        position : 'top center'
+    });
 
+    //todo
+    // 弹出文章目录
+    $('.toc.button').popup({
+        popup : $('.toc-container'),
+        on : 'click',
+        position : 'top center'
+    });
 
-function fillFriendLink() {
+    // 生成网页二维码
+    var qrcode = new QRCode("qrcode", {
+        text: "http://jindo.dev.naver.com/collie",
+        width: 128,
+        height: 128,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
 
-    $.ajax({
-            type: 'get',
-            url: '/user/listFriendLink',
-            dataType: 'json',
-            success: function (data) {
-                if (data['status'] === 'success') {
-                    if (data['data'] === null) {
-                        noFriendLink();
-                    } else {
-                        makeFriendLind(data);
-                    }
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function(direction) {
+            if(direction == 'down') {
+                $('#toolbar').show(500);
 
-                } else {
-                    alert('友链数据请求错误');
-                }
-            },
-            error: function () {
-                alert("友链错误");
+            } else {
+                $('#toolbar').hide(500);
             }
-        });
+        }
+    });
+
 }
-
-
 
 $("#comment-btn").on("click",function () {
 
@@ -612,3 +814,56 @@ $(document).on("click",".like",function () {
 
     }
 });
+
+
+function fillBlogDetail() {
+
+
+    var url = location.href;
+    var id = url.split("/");
+    articleId = id[5];
+
+    $.ajax({
+        type: 'post',
+        url: '/user/getBlogDetail/'+articleId,
+        dataType: 'json',
+        success: function (data) {
+            if (data['status'] === 'success') {
+                scrollTo(0,0);
+                makeBlogDetail(data);
+
+            } else {
+                alert('博客详情数据请求错误');
+            }
+        },
+        error: function () {
+            alert("博客详情错误");
+        }
+    });
+}
+
+
+
+
+function formatDate(time,format){
+    var date = new Date(time);
+
+    var year = date.getFullYear(),
+        month = date.getMonth()+1,//月份是从0开始的
+        day = date.getDate(),
+        hour = date.getHours(),
+        min = date.getMinutes(),
+        sec = date.getSeconds();
+    var preArr = Array.apply(null,Array(10)).map(function(elem, index) {
+        return '0'+index;
+    });
+
+    var newTime = format.replace(/YY/g,year)
+        .replace(/MM/g,preArr[month]||month)
+        .replace(/DD/g,preArr[day]||day)
+        .replace(/hh/g,preArr[hour]||hour)
+        .replace(/mm/g,preArr[min]||min)
+        .replace(/ss/g,preArr[sec]||sec);
+
+    return newTime;
+}

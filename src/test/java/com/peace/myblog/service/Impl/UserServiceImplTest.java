@@ -36,7 +36,10 @@ class UserServiceImplTest {
         userService.createUser(user);
     }
 
+    @Test
     void selectAdmin() {
-
+        Long tel = new Long(15982063711L);
+        int flag = userService.isUserExist(tel);
+        System.out.println(flag);
     }
 }

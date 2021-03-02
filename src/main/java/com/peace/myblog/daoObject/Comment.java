@@ -1,9 +1,6 @@
 package com.peace.myblog.daoObject;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-
-import java.util.Date;
 
 /**
  * @author YR#
@@ -11,29 +8,50 @@ import java.util.Date;
  */
 @Data
 public class Comment {
+    /**
+     * 评论的id编号
+     */
+    private long commentId;
 
-//    评论Id
-    private Long id;
 
-//    评论用户Id
-    private Long userCommentId;
+    /**
+     * 文章id
+     */
+    private long articleId;
 
-//    回复评论用户Id
-    private Long userReplayId;
+    /**
+     * 评论者id
+     */
+    private long remarkerId;
 
-//    父级评论Id
-    private Long parentCommentId;
+    /**
+     * 回复者id
+     */
+    private long responsorId;
 
-//    评论内容
-    private String content;
+    /**
+     * 父级id
+     */
+    private long pId;
 
-//    评论用户头像
-    private String avatar;
+    /**
+     * 评论时间
+     */
+    private String commentDate;
 
-//    创建时间
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date createTime;
+    /**
+     * 评论内容
+     */
+    private String commentContent;
 
-//    博客id
-    private Long blogId;
+
+    /**
+     * 喜欢数目
+     */
+    private int likes;
+
+    /**
+     * 管理员是否阅读
+     */
+    private int isRead;
 }

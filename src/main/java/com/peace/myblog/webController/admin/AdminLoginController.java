@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/admin")
-public class adminLoginController {
+public class AdminLoginController {
 
     @Autowired
     private UserService userService;

@@ -12,12 +12,14 @@ import com.peace.myblog.error.MeNotFoundException;
 import com.peace.myblog.mapper.*;
 import com.peace.myblog.service.BlogService;
 import com.peace.myblog.service.UserService;
+import com.peace.myblog.utils.MarkDownUtils;
 import com.peace.myblog.utils.StringBothConvertLongArray;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.ws.rs.NotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -54,6 +56,18 @@ public class BlogServiceImpl implements BlogService {
         return blogMapper.getBlogById(id);
     }
 
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogMapper.getBlogById(id);
+        if (blog == null) {
+            throw new NotFoundException("该博客不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog, b);
+        String content = b.getContent();
+        b.setContent(MarkDownUtils.markdownToHtmlExtensions(content));
+        return b;
+    }
 
 
     @Override
@@ -203,5 +217,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<BlogCategoryInfo> getAllBlogCategory(Long categoryId) {
         return blogMapper.getBlogCategory(categoryId);
+    }
+
+    @Override
+    public List<BlogCategoryInfo> getAllBlogCategoryByTime(String publishDate) {
+        return blogMapper.getBlogCategoryByTime(publishDate);
     }
 }

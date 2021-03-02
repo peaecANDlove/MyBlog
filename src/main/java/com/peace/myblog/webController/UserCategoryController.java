@@ -46,7 +46,6 @@ public class UserCategoryController {
                                                   @RequestParam(value = "size", defaultValue = "3") Integer size,
                                                   @RequestParam(defaultValue = "null", value = "categoryName") String categoryName) {
 
-        System.out.println(categoryName);
 
         String orderBy = "create_time desc";
         PageHelper.startPage(pageNum, size, orderBy);
@@ -74,7 +73,6 @@ public class UserCategoryController {
 
         String[] time = createTime.split("-");
         String publishDate = time[0]+"年"+time[1]+"月";
-        System.out.println(publishDate);
         String orderBy = "create_time desc";
         PageHelper.startPage(pageNum, size, orderBy);
         List<BlogCategoryInfo> blogCategoryInfos = categoryService.listBlogCategoryByTime(publishDate);
